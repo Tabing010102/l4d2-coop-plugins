@@ -1,0 +1,13 @@
+"CountryShow"
+{
+        "messages"
+        {
+                "playerjoin"            "{PLAYERTYPE} {GREEN}{PLAYERNAME} {DEFAULT}connected | {GREEN}{PLAYERCOUNTRYSHORT3},{PLAYERCITY}"
+                "playerdisc"            "{PLAYERTYPE} {GREEN}{PLAYERNAME} {DEFAULT}disconnected {GREEN}reason: {DEFAULT}{DISC_REASON}"
+        }
+        "messages_admin"
+        {
+                "playerjoin"            "{PLAYERTYPE} {GREEN}{PLAYERNAME} {DEFAULT}connected | {GREEN}{PLAYERCOUNTRYSHORT3},{PLAYERCITY}"
+                "playerdisc"            "{PLAYERTYPE} {GREEN}{PLAYERNAME} {DEFAULT}disconnected {GREEN}reason: {DEFAULT}{DISC_REASON}"
+        }
+}

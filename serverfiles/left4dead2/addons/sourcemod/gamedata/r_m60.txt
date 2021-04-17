@@ -1,0 +1,29 @@
+"Games"
+{
+	"left4dead2"
+	{
+		"Addresses"
+		{
+			"M60RELOAD"
+			{
+				"windows"
+				{
+					"signature"	"M60_R"			
+				}
+				"linux"
+				{
+					"signature"	"M60_R"
+				}
+			}
+		}
+		"Signatures"
+		{
+			"M60_R"
+			{
+				"library"	"server"
+				"windows"	"\x83\xBE\x14\x14\x00\x00\x00**\x6A\x00\x6A\x01\x56\x8B\xCF"
+				"linux"		"\x83\xBE\x14\x14\x00\x00\x00**\x6A\x00\x6A\x01\x56\x8B\xCF"
+			}
+		}
+	}
+}

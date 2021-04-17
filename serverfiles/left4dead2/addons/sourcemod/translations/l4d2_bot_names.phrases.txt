@@ -1,0 +1,169 @@
+"Phrases"
+{
+	"Nick"
+	{
+		"chi"		"尼克"
+		"en"		"Nick"
+		"jp"		"ニック"
+		"ru"		"Ник"
+		"ua"		"Нік"
+		"zho"		"尼克"
+	}
+	"Rochelle"
+	{
+		"chi"		"罗雪儿"
+		"en"		"Rochelle"
+		"jp"		"ロシェル"
+		"ru"		"Рошель"
+		"ua"		"Рошель"
+		"zho"		"蘿雪兒"
+	}
+	"Coach"
+	{
+		"chi"		"教练"
+		"en"		"Coach"
+		"jp"		"コーチ"
+		"ru"		"Тренер"
+		"ua"		"Тренер"
+		"zho"		"教練"
+	}
+	"Ellis"
+	{
+		"chi"		"埃利斯"
+		"en"		"Ellis"
+		"jp"		"エリス"
+		"kr"		"엘리스"
+		"ru"		"Эллис"
+		"ua"		"Елліс"
+		"zho"		"艾利斯"
+	}
+	"Bill"
+	{
+		"chi"		"比尔"
+		"en"		"Bill"
+		"jp"		"ビル"
+		"kr"		"빌이"
+		"ru"		"Билл"
+		"ua"		"Білл"
+		"zho"		"比爾"
+	}
+	"Zoey"
+	{
+		"chi"		"若依"
+		"en"		"Zoey"
+		"jp"		"ゾーイ"
+		"kr"		"조이의"
+		"ru"		"Зой"
+		"ua"		"Зої"
+		"zho"		"佐伊"
+	}
+	"Francis"
+	{
+		"chi"		"弗朗西斯"
+		"en"		"Francis"
+		"jp"		"フランシス"
+		"kr"		"프란시스가"
+		"ru"		"Френсис"
+		"ua"		"Френсіс"
+		"zho"		"法蘭西斯"
+	}
+	"Louis"
+	{
+		"chi"		"路易斯"
+		"en"		"Louis"
+		"jp"		"ルイ"
+		"kr"		"루이스가"
+		"ru"		"Луис"
+		"ua"		"Луї"
+		"zho"		"路易斯"
+	}
+	"Smoker"
+	{
+		"chi"		"舌头"
+		"en"		"Smoker"
+		"fi"		"Smokerin"
+		"hu"		"Füstös"
+		"jp"		"スモーカー"
+		"kr"		"스모커"
+		"ru"		"Курильщик"
+		"zho"		"舌頭"
+	}
+	"Boomer"
+	{
+		"chi"		"胖子"
+		"en"		"Boomer"
+		"fi"		"Boomerin"
+		"hu"		"Pukkancs"
+		"jp"		"ブーマー"
+		"kr"		"부머가"
+		"ru"		"Толстяк"
+		"zho"		"胖子"
+	}
+	"Hunter"
+	{
+		"chi"		"亨特"
+		"en"		"Hunter"
+		"fi"		"Hunterin"
+		"hu"		"Vadász"
+		"jp"		"ハンター"
+		"kr"		"헌터"
+		"ru"		"Охотник"
+		"zho"		"獵人"
+	}
+	"Spitter"
+	{
+		"chi"		"口水"
+		"en"		"Spitter"
+		"fi"		"Spitterin"
+		"jp"		"スピッター"
+		"hu"		"Köpködő"
+		"kr"		"스피터"
+		"ru"		"Плевальщицы"
+		"zho"		"口水"
+	}
+	"Jockey"
+	{
+		"chi"		"猴子"
+		"en"		"Jockey"
+		"fi"		"Jockeyn"
+		"hu"		"Zsoké"
+		"jp"		"ジョッキー"
+		"kr"		"자키"
+		"ru"		"Жокея"
+		"zho"		"猴子"
+	}
+	"Charger"
+	{
+		"chi"		"牛哥"
+		"en"		"Charger"
+		"fi"		"Chargerin"
+		"hu"		"Rohanó"
+		"jp"		"チャージャー"
+		"kr"		"차저"
+		"ru"		"Громилы"
+		"zho"		"牛哥"
+	}
+	"Witch"
+	{
+		"chi"		"妹子"
+		"cze"		"Čarodějka"
+		"en"		"Witch"
+		"fi"		"Witchin"
+		"hu"		"Boszorka"
+		"jp"		"魔女"
+		"kr"		"윗치가"
+		"ru"		"Ведьма"
+		"tr"		"Cadı"
+		"zho"		"女巫"
+	}
+	"Tank"
+	{
+		"chi"		"坦克"
+		"en"		"Tank"
+		"fi"		"Tankin"
+		"jp"		"タンク"
+		"kr"		"탱크가"
+		"ru"		"Танк"
+		"zho"		"坦克"
+	}
+}
