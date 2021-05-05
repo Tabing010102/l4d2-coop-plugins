@@ -1743,7 +1743,7 @@ public Action:Jockey_OnPlayerRunCmd(jockey, &buttons, &impulse, Float:vel[3], Fl
 	// code from: https://github.com/TGMaster/Sourcepawn/blob/master/hardcoop/ai_tankbehaviour.sp
 	if (bHasSight && 600 > iSurvivorsProximity > 250 && currentspeed > 200.0)
 	{
-		buttons &= ~IN_ATTACK2;			// Block throwing rock
+		// buttons &= ~IN_ATTACK2;			// Block throwing rock
 		if (flags & FL_ONGROUND) {
 			buttons |= IN_DUCK;
 			buttons |= IN_JUMP;
