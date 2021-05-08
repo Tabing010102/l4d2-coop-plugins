@@ -86,14 +86,16 @@ public Action:onPlayerSpawn(Handle:event, String:event_name[], bool:dontBroadcas
 {
         new client = GetClientOfUserId(GetEventInt(event, "userid"));
         if (isSpecialInfectedBot(client)) {
-                // AI適用の有効無効を切り替える（タンクはこのフラグを無視する）
-                if (GetRandomInt(0, 2) != 0) {
-                        // 2/3だけ改変
-                        g_ai_enable[client] = true;
-                } else {
-                        // 1/3はデフォルトのAI
-                        g_ai_enable[client] = false;
-                }
+                // // AI適用の有効無効を切り替える（タンクはこのフラグを無視する）
+                // if (GetRandomInt(0, 2) != 0) {
+                //         // 2/3だけ改変
+                //         g_ai_enable[client] = true;
+                // } else {
+                //         // 1/3はデフォルトのAI
+                //         g_ai_enable[client] = false;
+                // }
+                // All use plugin AI
+                g_ai_enable[client] = true;
         }
 }
 
