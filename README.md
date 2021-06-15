@@ -23,10 +23,11 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 /on142: turn on multi-SI mode, SI number is determined by current players in-game  
 /addif: specify how many SI added when one new player connected  
 ### Ammo control commands
-/offammo: disable ammo modification  
-/onammo: enable double ammo  
-/onammo1: enable custom ammo controled by configuration file  
-/onammo2: enable unlimited ammo  
+~~/offammo: disable ammo modification~~  
+~~/onammo: enable double ammo~~  
+~~/onammo1: enable custom ammo controled by configuration file~~  
+~~/onammo2: enable unlimited ammo~~  
+Ammo reverse is now controlled by l4d2_guncontrol configuration file  
 ### Recourse control commands
 /mmn: control medical resources multiplier  
 ### Auxiliary? commands
