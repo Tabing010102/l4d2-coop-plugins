@@ -27,7 +27,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 ~~/onammo: enable double ammo~~  
 ~~/onammo1: enable custom ammo controled by configuration file~~  
 ~~/onammo2: enable unlimited ammo~~  
-Ammo reverse is now controlled by l4d2_guncontrol configuration file  
+Ammo reservation is now controlled by l4d2_guncontrol, default triple ammo reserve  
 ### Recourse control commands
 /mmn: control medical resources multiplier  
 ### Auxiliary? commands
