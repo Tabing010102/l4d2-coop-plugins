@@ -37,4 +37,16 @@ Ammo reservation is now controlled by l4d2_guncontrol, default triple ammo reser
 /offtui: turn off unlimited m2  
 /onrb: turn on auto bhop when space being pressed  
 /offrb: turn off auto bhop when space being pressed  
+### Advanced Bot AI.vpk control commands
+!morebot: Will spawn a new bot to the player team. ps: Do NOT spawn too much bot or takeover the new bot, otherwise will crash the game.  
+!botstop: When all human players are dead, and bots can't finished this campaign by their own, will force to make all bots falling down.  
+!botfindgas: disable or enable bots finding gas feature.  
+!botthrow: disable or enable bots throw grenades feature.  
+!botimmunity: disable or enable bots immunity player-damage feature. ---Only works for admins if admin config enabled.  
+!botescort: disable or enable bots follow player.  
+!botunstick: make bot unstick-teleport or not.  
+!botversus: disable or enable Balanced mode option. ---Only works for admins if admin config enabled.  
+!FractureRay: disable or enable Full Power mode option. ---Only works for admins if admin config enabled.  
+!botmenu: open a menu. left-click to confirm, right-click to choose.  
+**Other information please refer to [Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=1968764163)**
 # Other descriptions? to be added
