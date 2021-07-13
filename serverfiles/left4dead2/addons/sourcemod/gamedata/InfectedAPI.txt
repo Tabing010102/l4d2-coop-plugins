@@ -1,0 +1,65 @@
+"Games"
+{
+    "left4dead2"
+    {
+
+		"Offsets"
+		{
+			"WindowsOrLinux"
+			{
+				"windows"	"1"
+				"linux"		"2"
+			}
+			"RefEHandleOffset" // from CBaseEntity::GetRefEHandle
+			{
+				"windows"	"928" // found by vtable (#2 func in baseentity)
+				"linux"		"948" 
+			}
+
+		}
+
+        
+        "Signatures"
+        {
+
+             /*  CBaseAbility::CreateForPlayer(client)   */
+			"CreateAbility"
+			{
+            	"library"	"server"
+            	"windows"	"\x55\x8b\xec\x83\xec*\x56\x8b\x75*\x85\xf6\x0f\x84****\x8b\xce\xe8" //found by V10
+            	"linux"		"@_ZN12CBaseAbility15CreateForPlayerEP13CTerrorPlayer"
+
+			}
+
+			/*  CTerrorPlayer::SetClass(client,class)   */
+
+			"SetClass"
+			{
+            	"library"	"server"
+            	"windows"	"\x55\x8b\xec\x56\x8b\xf1\xe8****\x83\xf8*\x0f\x85****\xa1****\x40\xa3"  //found by V10
+            	"linux"		"@_ZN13CTerrorPlayer8SetClassE15ZombieClassType"
+
+			}
+
+			/*  CTerrorPlayer::ZombieAbortControl(client,float unknow=0.0)   */
+
+			"ZombieAbortControl"
+			{
+            	"library"	"server"
+            	"windows"	"\x55\x8b\xec\x83\xec*\x56\x8b\xf1\xe8****\x83\xf8*\x0f\x85****\x8b\x06\x8b\x90***\x00\x8b\xce\xff\xd2\x84\xc0" //found by V10
+            	"linux"		"@_ZN13CTerrorPlayer24PlayerZombieAbortControlEv"
+
+			}
+
+            /*  CTerrorPlayer::OnEnterGhostState(client)   */
+
+            "OnEnterGhostState"
+            {
+                "library"    "server"
+                "windows"    "\x55\x8b\xec\x83\xec*\x53\x56\x8b\xf1\x8b\x86***\x00\x8b\x50*\x8d\x8e***\x00\x57\xff\xd2\x8b\x06\x8b\x90"
+                "linux"      "@_ZN13CTerrorPlayer17OnEnterGhostStateEv"
+            } 
+		}
+    }
+}
+
