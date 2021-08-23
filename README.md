@@ -1,10 +1,17 @@
 # l4d2-coop-plugins
 Personally used Left 4 Dead 2 Dedicated Server Coop Plugins  
 **LINUX SERVER SUPPORT ONLY**  
+This plugin set is based on LinuxGSM, you can either install with LinuxGSM or write your own start script.  
 Please edit lgsm/config-lgsm/l4d2server/common.cfg to specify your own port(Default 27015), or you can refer to LinuxGSM configuration document.  
 Please edit serverfiles/left4dead2/addons/sourcemod/configs/admins_simple.ini to add yourself as an administrator  
 There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.  
-# Some commands
+# Some Descriptions
+## Match Modes  
+thcoop: coop with improved special infected AI  
+thcoopnosiai: coop with original special infected AI  
+## Lgofnoc related commands
+/forcematch [matchmode]: set server matchmode to [matchmode]  
+/resetmatch: unload running matchmodes  
 ## Player commands
 /jg: join game as a survivor  
 /away: force idle  
@@ -38,15 +45,15 @@ Ammo reservation is now controlled by l4d2_guncontrol, default triple ammo reser
 /onrb: turn on auto bhop when space being pressed  
 /offrb: turn off auto bhop when space being pressed  
 ### Advanced Bot AI.vpk control commands
-!morebot: Will spawn a new bot to the player team. ps: Do NOT spawn too much bot or takeover the new bot, otherwise will crash the game.  
-!botstop: When all human players are dead, and bots can't finished this campaign by their own, will force to make all bots falling down.  
-!botfindgas: disable or enable bots finding gas feature.  
-!botthrow: disable or enable bots throw grenades feature.  
-!botimmunity: disable or enable bots immunity player-damage feature. ---Only works for admins if admin config enabled.  
-!botescort: disable or enable bots follow player.  
-!botunstick: make bot unstick-teleport or not.  
-!botversus: disable or enable Balanced mode option. ---Only works for admins if admin config enabled.  
-!FractureRay: disable or enable Full Power mode option. ---Only works for admins if admin config enabled.  
-!botmenu: open a menu. left-click to confirm, right-click to choose.  
+/morebot: Will spawn a new bot to the player team. ps: Do NOT spawn too much bot or takeover the new bot, otherwise will crash the game.  
+/botstop: When all human players are dead, and bots can't finished this campaign by their own, will force to make all bots falling down.  
+/botfindgas: disable or enable bots finding gas feature.  
+/botthrow: disable or enable bots throw grenades feature.  
+/botimmunity: disable or enable bots immunity player-damage feature. ---Only works for admins if admin config enabled.  
+/botescort: disable or enable bots follow player.  
+/botunstick: make bot unstick-teleport or not.  
+/botversus: disable or enable Balanced mode option. ---Only works for admins if admin config enabled.  
+/FractureRay: disable or enable Full Power mode option. ---Only works for admins if admin config enabled.  
+/botmenu: open a menu. left-click to confirm, right-click to choose.  
 **Other information please refer to [Steam Workshop Page](https://steamcommunity.com/sharedfiles/filedetails/?id=1968764163)**
 # Other descriptions? to be added

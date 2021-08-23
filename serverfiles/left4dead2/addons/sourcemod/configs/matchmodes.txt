@@ -1,0 +1,11 @@
+"MatchModes"
+{
+	"thcoop"
+	{
+		"name" "Tabing's Hard Coop"
+	}
+	"thcoopnosiai"
+	{
+		"name" "Tabing's Hard Coop Without SI AI"
+	}
+}
