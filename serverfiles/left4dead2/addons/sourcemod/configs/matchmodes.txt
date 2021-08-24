@@ -1,11 +1,14 @@
 "MatchModes"
 {
-	"thcoop"
+	"Tabing's Coop Configs"
 	{
-		"name" "Tabing's Hard Coop"
-	}
-	"thcoopnosiai"
-	{
-		"name" "Tabing's Hard Coop Without SI AI"
+		"thcoop"
+		{
+			"name" "Tabing's Hard Coop"
+		}
+		"thcoopnosiai"
+		{
+			"name" "Tabing's Hard Coop Without SI AI"
+		}
 	}
 }

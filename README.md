@@ -1,17 +1,20 @@
 # l4d2-coop-plugins
 Personally used Left 4 Dead 2 Dedicated Server Coop Plugins  
+**cfgogl branch**
 **LINUX SERVER SUPPORT ONLY**  
 This plugin set is based on LinuxGSM, you can either install with LinuxGSM or write your own start script.  
 Please edit lgsm/config-lgsm/l4d2server/common.cfg to specify your own port(Default 27015), or you can refer to LinuxGSM configuration document.  
 Please edit serverfiles/left4dead2/addons/sourcemod/configs/admins_simple.ini to add yourself as an administrator  
 There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.  
+Known bug(s):  
+first-aid kits are removed from saferoom  
 # Some Descriptions
 ## Match Modes  
 thcoop: coop with improved special infected AI  
 thcoopnosiai: coop with original special infected AI  
 ## Lgofnoc related commands
 /forcematch [matchmode]: set server matchmode to [matchmode]  
-/resetmatch: unload running matchmodes  
+/rmatch: unload running matchmodes  
 ## Player commands
 /jg: join game as a survivor  
 /away: force idle  
