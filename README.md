@@ -1,6 +1,6 @@
 # l4d2-coop-plugins
 Personally used Left 4 Dead 2 Dedicated Server Coop Plugins  
-**cfgogl branch**
+**cfgogl branch**  
 **LINUX SERVER SUPPORT ONLY**  
 This plugin set is based on LinuxGSM, you can either install with LinuxGSM or write your own start script.  
 Please edit lgsm/config-lgsm/l4d2server/common.cfg to specify your own port(Default 27015), or you can refer to LinuxGSM configuration document.  
