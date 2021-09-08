@@ -1,4 +1,4 @@
-/* created by V10 aka maldersoft */
+/* created by V10 aka maldersoft, Accelerator & $atanic $pirit */
 "Games"
 {
 	"left4dead2"
@@ -7,14 +7,14 @@
 		{
 			"WitchAttackCharaster"
 			{
+				"linux"		"14"
 				"windows"	"14"
-				"linux"		"56"
 			}
 			
 			"SurvivorCounters"
 			{
-				"windows"	"1056"
-				"linux"		"1048"
+				"linux"		"1068"
+				"windows"	"1072"
 			}
 						
 			/* Offset into CDirectorMusicBanks::OnRoundStart */
@@ -23,53 +23,71 @@
 				"windows"	"12"
 			}			
 		}
+		/* From forums.alliedmods.net */
 		"Signatures"
 		{
-			"WitchAttack::WitchAttack"
+			"CDirectorMusicBanks::OnRoundStart"
 			{
 				"library"	"server"
-				"windows"	"\x55\x8b\xec\x83\xec\x10\x53\x33\xdb\x56\x8b\xf1\xc7\x46*****\xc7\x46*****\x89\x5d\xf0\x89\x5d\xf4\xf3****\x66\x0f\xd6\x46*\x57\x89\x5d*\x89\x5d*\xf3****\x89\x5e*\x89\x5e*\x89\x5e*\x89\x5e*\x89\x5e*\x89\x5e*\x66\x89\x5e*\x66\x0f\xd6\x46*\xc7\x06****\xc7\x46*****\x53\x8d\x4e*\xc7\x46"
-				"linux"		"@_ZN11WitchAttackC1EP11CBaseEntity"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x56\x57\x8B\x2A\x8B\x2A\x2A\x2A\x2A\x2A\xE8\x2A\x2A\x2A\x2A\x84\x2A\x0F"
+				/* ? ? ? ? ? ? 56 57 8B ? 8B ? ? ? ? ? E8 ? ? ? ? 84 ? 0F */
 			}
-		
-			"CCharge::HandleCustomCollision_code"
-			{
-				"library"	"server"
-				"windows"	"\x0f\x85***\x00\xc6\x00\x01\x8b\x15****\xf3\x0f\x10\x42*\xf3\x0f\x59\xc0\x0f"
-				"linux"	"\x0F\x85\xFE\xFE\xFF\xFF\xF3\x0F\x10\x9D\x18\xFF\xFF\xFF\xC6\x84\x03\x9C\x04\x00\x00\x01\xF3\x0F"
-			}
-			"CCharge::HandleCustomCollision"
-			{
-				"library"	"server"
-				"windows"	"\x55\x8b\xec\x81\xec**\x00\x00\xa1****\x33\xc5\x89\x45*\x8b\x45*\x53\x8b\xd9\x89\x45*\x8b\x83**\x00\x00\x56\x8b\x75"
-				"linux"		"@_ZN7CCharge21HandleCustomCollisionEP11CBaseEntityRK6VectorS4_P10CGameTraceP9CMoveData"
-			}
-			
-			"CTerrorGameRules::CalculateSurvivalMultiplier"
-			{
-				"library"	"server"
-				"windows"	"\x55\x8b\xec\x83\xec*\x80\x7d*\x00\x53\x56\x8b\xd9\x0f\x84**\x00\x00"
-				"linux"		"@_ZN16CTerrorGameRules27CalculateSurvivalMultiplierEb"
-			}
-			
 			"TheDirector"
 			{
 				"library"	"server"
 				"linux"		"@TheDirector"
 			}
-			"DirectorMusicBanks::OnRoundStart"
+			"CCharge::HandleCustomCollision"
 			{
 				"library"	"server"
-				"windows"   "\x55\x8b\xec\x83\xec*\x56\x57\x8b\xf9\x8b\x0d****\xe8****\x84\xc0\x0f\x85"
+				"linux"		"@_ZN7CCharge21HandleCustomCollisionEP11CBaseEntityRK6VectorS4_P10CGameTraceP9CMoveData"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\xA1\x2A\x2A\x2A\x2A\x33\x2A\x89\x2A\x2A\x8B\x2A\x2A\x53\x8B\x2A\x89\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x56\x8B\x2A\x2A\x57"
+				/* ? ? ? ? ? ? ? ? ? A1 ? ? ? ? 33 ? 89 ? ? 8B ? ? 53 8B ? 89 ? ? 8B ? ? ? ? ? 56 8B ? ? 57 */
+			}
+			"CCharge::HandleCustomCollision_code"
+			{
+				"library"	"server"
+				"linux"		"\x2A\x2A\x2A\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x2A\x2A\x2A\x2A\xC6\x2A\x2A\x2A\x2A\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x2A\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x2A\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x2A\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x2A\x2A\x2A\x2A\xA1"
+				/* ? ? ? ? ? ? F3 0F ? ? ? ? ? ? C6 ? ? ? ? ? ? ? F3 0F ? ? ? ? ? ? F3 0F ? ? ? ? ? ? F3 0F ? ? ? ? ? ? F3 0F ? ? ? ? ? ? A1 */
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\xC6\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x2A\xF3\x0F\x2A\x2A\x0F"
+				/* ? ? ? ? ? ? C6 ? ? 8B ? ? ? ? ? F3 0F ? ? ? F3 0F ? ? 0F */
+			}
+			"WitchAttack::WitchAttack"
+			{
+				"library"	"server"
+				"linux"		"@_ZN11WitchAttackC1EP11CBaseEntity"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\xC7\x2A\x2A\x2A\x2A\x2A\x2A\xC7\x2A\x2A\x2A\x2A\x2A\x2A\x33\x2A\x33\x2A\x89\x2A\x2A\x33\x2A\x89\x2A\x2A\x57\x33\x2A\x89\x2A\x2A\x33\x2A\x89\x2A\x2A\x89\x2A\x2A\x89\x2A\x2A\x89\x2A\x2A\x89\x2A\x2A\x89\x2A\x2A\x66\x2A\x2A\x2A\x89\x2A\x2A\xC7\x2A\x2A\x2A\x2A\x2A\xC7\x2A\x2A\x2A\x2A\x2A\x2A\x53\x8D\x2A\x2A\xC7\x2A\x2A\x2A\x2A\x2A\x2A\xE8\x2A\x2A\x2A\x2A\x0F\x57\x2A\x8D\x2A\x2A\x2A\x2A\x2A\x88"
+				/* ? ? ? ? ? ? ? C7 ? ? ? ? ? ? C7 ? ? ? ? ? ? 33 ? 33 ? 89 ? ? 33 ? 89 ? ? 57 33 ? 89 ? ? 33 ? 89 ? ? 89 ? ? 89 ? ? 89 ? ? 89 ? ? 89 ? ? 66 ? ? ? 89 ? ? C7 ? ? ? ? ? C7 ? ? ? ? ? ? 53 8D ? ? C7 ? ? ? ? ? ? E8 ? ? ? ? 0F 57 ? 8D ? ? ? ? ? 88 */
+			}
+			"CTerrorGameRules::CalculateSurvivalMultiplier"
+			{
+				"library"	"server"
+				"linux"		"@_ZN16CTerrorGameRules27CalculateSurvivalMultiplierEb"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x80\x2A\x2A\x2A\x53\x56\x8B\x2A\x0F\x84"
+				/* ? ? ? ? ? ? 80 ? ? ? 53 56 8B ? 0F 84 */
 			}
 			"CDirector::AreTeamsFlipped"
 			{
 				"library"	"server"
-				"windows"   "\x57\x8b\xf9\xe8****\x84\xc0\x75*\xf7\x05*******\x00\x56\x74*\xbe"
 				"linux"		"@_ZNK9CDirector15AreTeamsFlippedEv"
+				"windows"	"\x57\x8B\x2A\xE8\x2A\x2A\x2A\x2A\x84\x2A\x75\x2A\xF7"
+				/* 57 8B ? E8 ? ? ? ? 84 ? 75 ? F7 */
 			}
+			"CDirector::AllowWitchesInCheckpoints"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK9CDirector25AllowWitchesInCheckpointsEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x84\x2A\x75\x2A\xE8\x2A\x2A\x2A\x2A\x84\x2A\x75\x2A\x8B\x2A\x2A\x2A\x2A\x2A\xE8\x2A\x2A\x2A\x2A\x84\x2A\x75\x2A\x33"
+				/* ? ? ? ? ? ? ? ? 84 ? 75 ? E8 ? ? ? ? 84 ? 75 ? 8B ? ? ? ? ? E8 ? ? ? ? 84 ? 75 ? 33 */
+			}
+			"WitchAttack::GetVictim"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK11WitchAttack9GetVictimEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x83\x2A\x2A\x74\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x81\x2A\x2A\x2A\x2A\x2A\x03\x2A\x8D\x2A\x2A\x2A\x85\x2A\x74\x2A\xC1\x2A\x2A\x39\x2A\x2A\x75\x2A\x8B\x2A\xC3\x33\x2A\xC3\x50"
+				/* ? ? ? ? ? ? ? ? 8B ? ? 83 ? ? 74 ? 8B ? ? ? ? ? 8B ? 81 ? ? ? ? ? 03 ? 8D ? ? ? 85 ? 74 ? C1 ? ? 39 ? ? 75 ? 8B ? C3 33 ? C3 50 */
+			} 
 			
 		}
 	}
 }
-
