@@ -10,6 +10,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 # Some Descriptions
 ## Match Modes  
 `thcoop`: coop with improved special infected AI  
+`thcoop2`: coop with improved special infected AI(mixed plugins)  
 `thcoopnosiai`: coop with original special infected AI  
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
