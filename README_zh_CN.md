@@ -11,6 +11,7 @@ Windows平台可以查看`win`分支
 # 一些说明
 ## match模式  
 `thcoop`: 有特感增强的战役模式  
+`thcoop2`: 有特感增强（混合插件）的战役模式  
 `thcoopnosiai`: 原版特感的战役模式  
 ## Lgofnoc相关指令
 `/forcematch matchmode`: 设置服务器match模式为`matchmode`  
