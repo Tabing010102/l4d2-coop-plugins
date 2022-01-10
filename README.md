@@ -15,7 +15,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
 `/resetmatch`: unload running matchmodes  
-~~default autoloading thcoop mode, please change `autoloadlgofnoc xxx` in the server config file to modify~~  
+~~default autoloading `thcoop2` mode, please change `autoloadlgofnoc xxx` in the server config file to modify~~  
 autoloading may crash the client built-in server, commenting `autoloadlgofnoc xxx` in the main config file  
 please use `/forcematch matchmode` to manually load `matchmode` or just remove the `//` to autoload if you are using DS  
 ## Player commands
