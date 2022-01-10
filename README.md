@@ -16,7 +16,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
 `/resetmatch`: unload running matchmodes  
-default autoloading thcoop mode, please change `autoloadlgofnoc xxx` in the server config file to modify  
+default autoloading `thcoop2` mode, please change `autoloadlgofnoc xxx` in the server config file to modify  
 ## Player commands
 `/jg`: join game as a survivor  
 `/away`: force idle  

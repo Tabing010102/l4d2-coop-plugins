@@ -16,7 +16,7 @@ Windows平台可以查看`win`分支
 ## Lgofnoc相关指令
 `/forcematch matchmode`: 设置服务器match模式为`matchmode`  
 `/resetmatch`: 卸载当前match模式  
-默认自动加载`thcoop`模式，需要更改请修改主配置文件中的`autoloadlgofnoc xxx`  
+默认自动加载`thcoop2`模式，需要更改请修改主配置文件中的`autoloadlgofnoc xxx`  
 ## 玩家指令
 `/jg`: 作为生还者加入游戏  
 `/away`: 强制旁观  
