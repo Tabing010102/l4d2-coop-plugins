@@ -18,7 +18,7 @@ public Plugin myinfo =
     name = "L4D2StartingWeapon",
     author = "Lyric",
     description = "L4D2 Starting Weapon",
-    version = "3.1",
+    version = "3.1.1",
     url = "https://github.com/scooderic"
 };
 
@@ -50,7 +50,7 @@ public void OnClientPutInServer(int client)
 {
     if (client >= 1 && IsClientConnected(client) && !IsFakeClient(client))
     {
-        CreateTimer(2.0, Timer_GiveWeapon, client, TIMER_REPEAT);
+        CreateTimer(0.2, Timer_GiveWeapon, client, TIMER_REPEAT);
     }
 }
 
