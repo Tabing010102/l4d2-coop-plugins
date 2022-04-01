@@ -26,6 +26,7 @@ default autoloading `thcoop2` mode, please change `autoloadlgofnoc xxx` in the s
 `/sset num`: set server max player to `num`  
 `/sinfo`: show server maxplayer info  
 `/rygive`: give items, teleport players, etc.  
+`/pause`: pause/unpause game  
 ### Bot control commands
 `/addbot`: add a bot for player(s) to control when necessary  
 `/kb`: kick all bots  
