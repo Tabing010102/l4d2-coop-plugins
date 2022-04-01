@@ -4,7 +4,7 @@
  * Fixed 2015 steamcommunity.com/id/Electr0n
  * Fixed 2016 steamcommunity.com/id/mixjayrus
  * Fixed 2016 user Merudo
- * Modified 2021 Tabing010102
+ * Modified 2021, 2022 Tabing010102
  *
  * =============================================================================
  *
@@ -84,7 +84,7 @@ char g_CoopGameModes[][] = {
 	"tankrun" // Tank Run
 	//"rocketdude" // RocketDude
 };
-const int g_SWCount = 14;
+/*const int g_SWCount = 14;
 char g_SecondaryWeaponList[][] = {
 	"weapon_pistol",
 	"weapon_pistol_magnum",
@@ -100,7 +100,7 @@ char g_SecondaryWeaponList[][] = {
 	"weapon_tonfa",
 	"weapon_knife",
 	"weapon_chainsaw"
-};
+};*/
 
 const int DEBUG = 0;
 
@@ -109,7 +109,7 @@ public Plugin myinfo =
 	name = "[L4D2] Save Weapon",
 	author = "MAKS",
 	description = "L4D2 coop save weapon",
-	version = "4.14.2",
+	version = "4.14.3",
 	url = "forums.alliedmods.net/showthread.php?p=2304407"
 };
 
@@ -356,7 +356,7 @@ void HxKickC(int &client)
 	KickClient(client, "Mt");
 }
 
-/*int HxGetSlot1(int &client, int iSlot1)
+int HxGetSlot1(int &client, int iSlot1)
 {
 	sg_buffer0[0] = '\0';
 	GetEntPropString(iSlot1, Prop_Data, "m_ModelName", sg_buffer0, sizeof(sg_buffer0)-1);
@@ -447,13 +447,15 @@ void HxKickC(int &client)
 		sg_slot1[client] = "shovel";
 		return 1;
 	}
+	sg_slot1[client] = "custom";
+	return 1;
 
-	GetEdictClassname(iSlot1, sg_slot1[client], 39);
-	LogError("m_ModelName(%s) %s", sg_buffer0, sg_slot1[client]);
-	return 0;
-}*/
+	// GetEdictClassname(iSlot1, sg_slot1[client], 39);
+	// LogError("m_ModelName(%s) %s", sg_buffer0, sg_slot1[client]);
+	// return 0;
+}
 
-int HxGetSlot1(int &client, int iSlot1)
+/*int HxGetSlot1(int &client, int iSlot1)
 {
 	// char ttt[40];
 	// GetEdictClassname(GetPlayerWeaponSlot(client, 1), ttt, 39);
@@ -489,7 +491,7 @@ int HxGetSlot1(int &client, int iSlot1)
 	// GetEdictClassname(iSlot1, sg_slot1[client], 39);
 	// LogError("m_ModelName(%s) %s", sg_buffer0, sg_slot1[client]);
 	// return 0;
-}
+}*/
 
 void HxSaveC(int &client)
 {
@@ -577,7 +579,7 @@ void HxGiveC(int &client)
 		iSlot3 = GetPlayerWeaponSlot(client, 3);
 		iSlot4 = GetPlayerWeaponSlot(client, 4);
 
-		HxRemoveWeapon(client, iSlot0);
+		if (sg_slot0[client][0] != '\0') HxRemoveWeapon(client, iSlot0);
 		if (strcmp(sg_slot1[client], "custom", true)) HxRemoveWeapon(client, iSlot1);
 		HxRemoveWeapon(client, iSlot2);
 		HxRemoveWeapon(client, iSlot3);
@@ -594,7 +596,8 @@ void HxGiveC(int &client)
 		}
 		else
 		{
-			if (GetConVarBool(hg_noob))
+			if (DEBUG) PrintToConsoleAll("[L4D2 Save Weapon] HxGiveC GetPlayerWeaponSlot(client, 0) = %d\n", iSlot0);
+			if (GetConVarBool(hg_noob) && iSlot0 == -1)
 			{
 				HxFakeCHEAT(client, "give", "weapon_smg_silenced");
 				SetEntProp(GetPlayerWeaponSlot(client, 0), Prop_Send, "m_iClip1", 50, 4);
@@ -661,7 +664,7 @@ public Action HxTimerConnected(Handle timer, any client)
 				return Plugin_Stop;
 			}
 		}
-		CreateTimer(0.1, HxTimerConnected, client, TIMER_FLAG_NO_MAPCHANGE);
+		CreateTimer(0.5, HxTimerConnected, client, TIMER_FLAG_NO_MAPCHANGE);
 	}
 
 	return Plugin_Stop;
@@ -733,7 +736,7 @@ public void Event_RoundStart(Event event, const char[] name, bool dontBroadcast)
 {
 	if (ig_coop)
 	{
-		CreateTimer(0.1, HxTimerRS, _, TIMER_FLAG_NO_MAPCHANGE);
+		CreateTimer(0.5, HxTimerRS, _, TIMER_FLAG_NO_MAPCHANGE);
 	}
 }
 
@@ -776,19 +779,7 @@ public Action HxTimerDefib(Handle timer, any client)
 				if (sg_defib[client][0] != '\0')
 				{
 					int iSlot1 = GetPlayerWeaponSlot(client, 1);
-					bool canSpawn = false;
-					char weaponClassName[40];
-					weaponClassName[0] = '\0';
-					GetEdictClassname(iSlot1, weaponClassName, 39);
-					for (int i = 0; i < g_SWCount; i++)
-					{
-						if (StrEqual(weaponClassName, g_SecondaryWeaponList[i], true))
-						{
-							canSpawn = true;
-							break;
-						}
-					}
-					if (canSpawn)
+					if (StrContains(sg_defib[client], "custom", true) == -1)
 					{
 						HxRemoveWeapon(client, iSlot1);
 						HxFakeCHEAT(client, "give", sg_defib[client]);
@@ -808,7 +799,7 @@ public void Event_DefibUsed(Event event, const char[] name, bool dontBroadcast)
 	{
 		if (ig_coop)
 		{
-			CreateTimer(0.1, HxTimerDefib, iSubject, TIMER_FLAG_NO_MAPCHANGE);
+			CreateTimer(0.5, HxTimerDefib, iSubject, TIMER_FLAG_NO_MAPCHANGE);
 		}
 	}
 }
