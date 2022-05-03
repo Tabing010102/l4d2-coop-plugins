@@ -18,6 +18,7 @@
 ~~默认自动加载`thcoop2`模式，需要更改请修改主配置文件中的`autoloadlgofnoc xxx`~~  
 自动加载可能会导致客户端内置服务器崩溃，注释了配置文件中的`autoloadlgofnoc xxx`  
 请使用`/forcematch matchmode`来手动加载`matchmode`或直接删除配置文件中的`//`来自动加载如果你在使用独立服务器  
+`ai_tank_bhop` 参数控制tank连跳与否，`1`开启，`0`关闭  
 ## 玩家指令
 `/jg`: 作为生还者加入游戏  
 `/away`: 强制旁观  

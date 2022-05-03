@@ -18,6 +18,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 ~~default autoloading `thcoop2` mode, please change `autoloadlgofnoc xxx` in the server config file to modify~~  
 autoloading may crash the client built-in server, commenting `autoloadlgofnoc xxx` in the main config file  
 please use `/forcematch matchmode` to manually load `matchmode` or just remove the `//` to autoload if you are using DS  
+cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disable  
 ## Player commands
 `/jg`: join game as a survivor  
 `/away`: force idle  
