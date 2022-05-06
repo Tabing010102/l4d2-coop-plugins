@@ -17,6 +17,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 `/forcematch matchmode`: set server matchmode to `matchmode`  
 `/resetmatch`: unload running matchmodes  
 default autoloading `thcoop2` mode, please change `autoloadlgofnoc xxx` in the server config file to modify  
+cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disable  
 ## Player commands
 `/jg`: join game as a survivor  
 `/away`: force idle  
