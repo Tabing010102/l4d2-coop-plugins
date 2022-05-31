@@ -1630,7 +1630,7 @@ void TankHealthCheck()
 	}
 	else if (StrContains(difficulty, "normal", false) != -1)
 	{
-		zombieHP[6] = RoundToFloor(zombieHP[6] * 1.5);
+		zombieHP[6] = zombieHP[6];
 	}
 	else if (StrContains(difficulty, "hard", false) != -1 || StrContains(difficulty, "impossible", false) != -1)
 	{
@@ -2780,7 +2780,17 @@ public Action ColdDown_Timer(Handle timer)
 		}
 		if(g_bTankHealthAdjust)
 		{
-			SetConVarInt(cvarZombieHP[6], g_iTankHealth + (h_PlayerAddTankHealth.IntValue * (addition/h_PlayerAddTankHealthScale.IntValue)));
+			char difficulty[100];
+			h_Difficulty.GetString(difficulty, sizeof(difficulty));
+			if (StrContains(difficulty, "normal", false) != -1)
+			{
+				SetConVarInt(cvarZombieHP[6], RoundToFloor( (g_iTankHealth + (h_PlayerAddTankHealth.IntValue * (addition/h_PlayerAddTankHealthScale.IntValue))) * 1.5 ));
+			}
+			else
+			{
+				SetConVarInt(cvarZombieHP[6], g_iTankHealth + (h_PlayerAddTankHealth.IntValue * (addition/h_PlayerAddTankHealthScale.IntValue)));
+			}
+			// PrintToChatAll("cvarZombieHP[6] = %d", cvarZombieHP[6].IntValue);
 			if(g_bCommonLimitAdjust)
 			{
 				SetConVarInt(h_common_limit_cvar, g_iCommonLimit + (h_PlayerAddCommonLimit.IntValue * (addition/h_PlayerAddCommonLimitScale.IntValue)));
