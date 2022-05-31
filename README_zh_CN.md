@@ -12,6 +12,7 @@ Windows平台可以查看`win`分支
 ## match模式  
 `thcoop`: 有特感增强的战役模式  
 `thcoop2`: 有特感增强（混合插件）的战役模式  
+`thcoop4`: 有特感增强（混合插件）&&新特感控制的战役模式  
 `thcoopnosiai`: 原版特感的战役模式  
 ## Lgofnoc相关指令
 `/forcematch matchmode`: 设置服务器match模式为`matchmode`  
@@ -31,11 +32,17 @@ Windows平台可以查看`win`分支
 ### Bot控制指令
 `/addbot`: 增加缺失的bot以供玩家控制  
 `/kb`: 踢出所有bot  
-### 多特控制指令
+### 多特控制指令(thcoop2)
 `/off14`: 关闭多特  
 `/on14`: 按配置文件刷特  
 `/on142`: 按生还者人数刷特  
 `/addif`: 每增加一个生还增加多少特感  
+### 多特控制指令(thcoop4)
+`/js`: 加入生还者  
+`/ji`: 加入特感  
+`/timer`: 更改特感生成时间  
+`/zlimit`: 更改小ss数量  
+其他功能由cvar控制  
 ### 备弹控制指令
 ~~`/offammo`: 关闭备弹修改~~  
 ~~`/onammo`: 双倍备弹~~  

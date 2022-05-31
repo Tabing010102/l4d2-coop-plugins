@@ -12,6 +12,7 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 ## Match Modes
 `thcoop`: coop with improved special infected AI  
 `thcoop2`: coop with improved special infected AI(mixed plugins)  
+`thcoop4`: coop with improved special infected AI(mixed plugins) && new SI control plugins  
 `thcoopnosiai`: coop with original special infected AI  
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
@@ -31,11 +32,17 @@ cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disa
 ### Bot control commands
 `/addbot`: add a bot for player(s) to control when necessary  
 `/kb`: kick all bots  
-### SI control commands
+### SI control commands(thcoop2)
 `/off14`: turn off multi-SI mode  
 `/on14`: turn on multi-SI mode, SI number is controlled by configuration file  
 `/on142`: turn on multi-SI mode, SI number is determined by current players in-game  
 `/addif`: specify how many SI added when one new player connected  
+### SI control commands(thcoop4)
+`/js`: join survivor  
+`/ji`: join infected  
+`/timer`: change SI spawn timer  
+`/zlimit`: change common infected limit  
+Other feature is controlled by cvar  
 ### Ammo control commands
 ~~`/offammo`: disable ammo modification~~  
 ~~`/onammo`: enable double ammo~~  
