@@ -4,7 +4,7 @@ Personally used Left 4 Dead 2 Dedicated Server Coop Plugins
 **LINUX SERVER SUPPORT ONLY**  
 Please checkout `win` branch if you are looking for Windows platform  
 This plugin set is based on LinuxGSM, you can either install with LinuxGSM or use your own startup script.  
-Please edit `lgsm/config-lgsm/l4d2server/common.cfg` to specify your own port(Default `27015`), or you can refer to LinuxGSM configuration document.  
+Please edit `lgsm/config-lgsm/l4d2server/l4d2server.cfg` to specify your own port(Default `27015`), or you can refer to LinuxGSM configuration document.  
 Current configuration is for 100 tick, please modify `tick_door_speed` if you need other tickrate  
 Please edit `serverfiles/left4dead2/addons/sourcemod/configs/admins_simple.ini` to add yourself as an administrator  
 There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.  

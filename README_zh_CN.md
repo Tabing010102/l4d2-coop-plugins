@@ -4,7 +4,7 @@
 **仅支持Linux平台**  
 Windows平台可以查看`win`分支  
 基于LinuxGSM, 可以使用LinuxGSM或用自己的启动脚本  
-编辑`lgsm/config-lgsm/l4d2server/common.cfg`来自定义端口（默认`27015`），也可以参考LinuxGSM文档  
+编辑`lgsm/config-lgsm/l4d2server/l4d2server.cfg`来自定义端口（默认`27015`），也可以参考LinuxGSM文档  
 当前配置对应100 tick，如需其他tickrate，请修改`tick_door_speed`  
 请编辑`serverfiles/left4dead2/addons/sourcemod/configs/admins_simple.ini`来把自己添加为管理员  
 这组插件可能会有些许bug, **使用请自行承担风险**.  
