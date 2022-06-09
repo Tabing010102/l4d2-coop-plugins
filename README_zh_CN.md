@@ -59,16 +59,4 @@
 `/offtui`: 关闭无限推  
 `/onrb`: 按住空格自动连跳  
 `/offrb`: 关闭按住空格自动连跳  
-### Advanced Bot AI.vpk（生还者bot增强mod）控制指令
-`/morebot`: 原地（但有的时候会生成在出生点）生成一只比尔bot。 此指令调用了vslib里的生成方法，生成的bot并不稳定，也不属于一般bot，当接管后生成的bot时会造成游戏崩溃。如果需要更多bot还是建议使用服务器插件来生成。  
-`/botstop`: 当所有玩家阵亡，而bot自身无法自己完成战役时（刁钻的第三方图），强行伤血bot重开这局。  
-`/botfindgas`: 关闭或开启bot找油和灌油的功能。  
-`/botthrow`: 关闭或开启bot丢投掷的功能。  
-`/botimmunity`: 关闭或开启对bot造成伤害（防黑枪）。---在管理员模式开启的情况下仅管理员可以使用。  
-`/botescort`: 关闭或开启bot跟随玩家，防止bot乱跑。  
-`/botunstick`: 关闭或开启bot卡住传送，开启以防止bot瞬移。  
-`/botversus`: 关闭或开启平衡配置。---在管理员模式开启的情况下仅管理员可以使用。  
-`/FractureRay`: 关闭或开启强力模式文件配置。---在管理员模式开启的情况下仅管理员可以使用。  
-`/botmenu`: 打开指令菜单（观察者模式不可用）。 右键选择，左键确定。  
-**其他说明请参考[Steam创意工坊页面](https://steamcommunity.com/sharedfiles/filedetails/?id=1968764163)**
 # 其他说明？待添加
