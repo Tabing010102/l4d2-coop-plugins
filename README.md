@@ -18,7 +18,7 @@ when closing the safe room, a survivor which is incapped may be given health whi
 ~~`thcoopnosiai`: coop with original special infected AI~~ **(deprecated)**  
 `thcoop4`: coop with improved special infected AI(mixed plugins) && new SI control plugins  
 `thcoop4expert`: coop with improved special infected AI(mixed plugins) && new SI control plugins(expert)  
-`thcoop4nosiai`: coop with original special infected AI( && new SI control plugins  
+`thcoop4nosiai`: coop with original special infected AI && new SI control plugins  
 `thcoop4nosiaiexpert`: coop with original special infected AI && new SI control plugins(expert)  
 ## Default Diffcuilty Description(thcoop4)
 `snum` = number of survivors in game  
