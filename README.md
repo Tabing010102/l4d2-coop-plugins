@@ -13,9 +13,9 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 secondary weapons(especially dual-pistol and magnum) may not be saved when changing level  
 when closing the safe room, a survivor which is incapped may be given health which he have when he is incapped(superman)  
 ## Match Modes
-~~`thcoop`: coop with improved special infected AI~~**(deprecated)**  
-~~`thcoop2`: coop with improved special infected AI(mixed plugins)~~**(deprecated)**  
-~~`thcoopnosiai`: coop with original special infected AI~~**(deprecated)**  
+~~`thcoop`: coop with improved special infected AI~~ **(deprecated)**  
+~~`thcoop2`: coop with improved special infected AI(mixed plugins)~~ **(deprecated)**  
+~~`thcoopnosiai`: coop with original special infected AI~~ **(deprecated)**  
 `thcoop4`: coop with improved special infected AI(mixed plugins) && new SI control plugins  
 `thcoop4expert`: coop with improved special infected AI(mixed plugins) && new SI control plugins(expert)  
 `thcoop4nosiai`: coop with original special infected AI( && new SI control plugins  
