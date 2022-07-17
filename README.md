@@ -8,11 +8,30 @@ Current configuration is for 100 tick, please modify `tick_door_speed` if you ne
 Please edit `left4dead2/addons/sourcemod/configs/admins_simple.ini` to add yourself as an administrator  
 There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.  
 # Some Descriptions
-## Match Modes  
-`thcoop`: coop with improved special infected AI  
-`thcoop2`: coop with improved special infected AI(mixed plugins)  
+## Known Bugs
+secondary weapons(especially dual-pistol and magnum) may not be saved when changing level  
+when closing the safe room, a survivor which is incapped may be given health which he have when he is incapped(superman)  
+## Match Modes
+~~`thcoop`: coop with improved special infected AI~~**(deprecated)**  
+~~`thcoop2`: coop with improved special infected AI(mixed plugins)~~**(deprecated)**  
+~~`thcoopnosiai`: coop with original special infected AI~~**(deprecated)**  
 `thcoop4`: coop with improved special infected AI(mixed plugins) && new SI control plugins  
-`thcoopnosiai`: coop with original special infected AI  
+`thcoop4expert`: coop with improved special infected AI(mixed plugins) && new SI control plugins(expert)  
+`thcoop4nosiai`: coop with original special infected AI( && new SI control plugins  
+`thcoop4nosiaiexpert`: coop with original special infected AI && new SI control plugins(expert)  
+## Default Diffcuilty Description(thcoop4)
+`snum` = number of survivors in game  
+when `snum` ≤ `4`, calculate as `4` below  
+### Tank Health
+this repo uses modified l4dinfectedbots(2.6.8) to control tank health, need to multiply 1.5 in normal difficulty  
+easy：`3000 + (snum - 4) * 750`  
+normal：`6000 + (snum - 4) * 1500`  
+hard & expert：`8000 + (snum - 4) * 2000`  
+### SI(Special Infected) Generation Time
+17-35 seconds  
+### Number of SI
+`thcoop4` & `thcoop4nosiai` matchmode: `6 + floor((snum - 4) / 2) * 3`, 3 player-controlled SI  
+`thcoop4expert` & `thcoop4nosiaiexpert` matchmode: `4 + (snum - 4)`, no player-controlled SI  
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
 `/resetmatch`: unload running matchmodes  
@@ -24,6 +43,7 @@ cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disa
 `/jg`: join game as a survivor  
 `/away`: force idle  
 `/zs`: commit suiside  
+`/csm`: change survivor model  
 ## Management commands
 ### General commands
 `/sset num`: set server max player to `num`  
