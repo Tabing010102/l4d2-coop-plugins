@@ -3,54 +3,66 @@
 	"CA Admin"
 	{
 		"en"			"Admin"
+		"chi"			"管理员"
 	}
 	"CA Public"
 	{
 		"en"			"Player"
+		"chi"			"玩家"
 	}
 	"LAN City Desc"
 	{
-		"en"			"an IP Address"
+		"en"			"LAN"
+		"chi"			"LAN"
 	}
 	"LAN Region Desc"
 	{
-		"en"			"a Local Subnet"
+		"en"			"LAN"
+		"chi"			"LAN"
 	}
 	"LAN Country Desc"
 	{
-		"en"			"a Local Area Network"
+		"en"			"LAN"
+		"chi"			"LAN"
 	}
 	
 	"LAN Country Short"
 	{
 		"en"			"LN"
+		"chi"			"LN"
 	}
 	
 	"LAN Country Short 3"
 	{
 		"en"			"LAN"
+		"chi"			"LAN"
 	}
 	
 	"Unknown City Desc"
 	{
-		"en"			"Somewhere"
+		"en"			"Unk"
+		"chi"			"Unk"
 	}
 	"Unknown Region Desc"
 	{
-		"en"			"an Unknown Region"
+		"en"			"Unk"
+		"chi"			"Unk"
 	}
 	"Unknown Country Desc"
 	{
-		"en"			"an Unknown Country"
+		"en"			"UNK"
+		"chi"			"UNK"
 	}
 	
 	"Unknown Country Short"
 	{
 		"en"			"??"
+		"chi"			"??"
 	}
 	
 	"Unknown Country Short 3"
 	{
-		"en"			"???"
+		"en"			"UNK"
+		"chi"			"UNK"
 	}
 }
