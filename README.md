@@ -61,7 +61,7 @@ cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disa
 `/js`: join survivor  
 `/ji`: join infected  
 `/timer`: change SI spawn timer  
-`/zlimit`: change common infected limit  
+`/zlimit`: change max special infected limit  
 Other feature is controlled by cvar  
 ### Ammo control commands
 ~~`/offammo`: disable ammo modification~~  
