@@ -16,6 +16,7 @@ when closing the safe room, a survivor which is incapped may be given health whi
 ~~`thcoop2`: coop with improved special infected AI(mixed plugins)~~ **(deprecated)**  
 ~~`thcoopnosiai`: coop with original special infected AI~~ **(deprecated)**  
 `thcoop4`: coop with improved special infected AI(mixed plugins) && new SI control plugins  
+`thcoop4hardplus`: coop with improved special infected AI(mixed plugins) && new SI control plugins(hard plus)  
 `thcoop4expert`: coop with improved special infected AI(mixed plugins) && new SI control plugins(expert)  
 `thcoop4nosiai`: coop with original special infected AI && new SI control plugins  
 `thcoop4nosiaiexpert`: coop with original special infected AI && new SI control plugins(expert)  
@@ -24,14 +25,31 @@ when closing the safe room, a survivor which is incapped may be given health whi
 when `snum` ≤ `4`, calculate as `4` below  
 ### Tank Health
 this repo uses modified l4dinfectedbots(2.6.8) to control tank health, need to multiply 1.5 in normal difficulty  
-easy：`3000 + (snum - 4) * 750`  
-normal：`6000 + (snum - 4) * 1500`  
-hard & expert：`8000 + (snum - 4) * 2000`  
+easy: `3000 + (snum - 4) * 750`  
+normal: `6000 + (snum - 4) * 1500`  
+hard & expert: `8000 + (snum - 4) * 2000`  
 ### SI(Special Infected) Generation Time
 17-35 seconds  
 ### Number of SI
 `thcoop4` & `thcoop4nosiai` matchmode: `6 + floor((snum - 4) / 2) * 3`, 3 player-controlled SI  
-`thcoop4expert` & `thcoop4nosiaiexpert` matchmode: `4 + (snum - 4)`, no player-controlled SI  
+`thcoop4hardplus` & `thcoop4expert` & `thcoop4nosiaiexpert` matchmode: `4 + (snum - 4)`, no player-controlled SI  
+## Hard Plus Difficulty Description(thcoop4hardplus)
+**Note: this difficulty is based on the offical `Hard` difficulty, you need to change the difficulty to `Hard` to use this mode**  
+### Default damage changes(relative to the offical `Hard`)
+Common infected: x2.0  
+Special infected: x2.0  
+Tank: punch and rock both make a 50hp damage  
+Witch: not changed  
+Friend Fire: x2.0  
+Fire Damage: x1.75  
+### Cvars of related plugins
+`l4d_ncm_type1damage`: common infected damage multiplier  
+`tank_damage_enable`: enable or disable tank damage change  
+`tank_damage`: tank damage  
+`tank_damage_modifier`: tank damage multiplier to incapped survivors relative to `tank_damage`  
+### Other description
+Damage of special infected may not be completely changed  
+You may need to manual execute `/resetmatch` to correctly restore damage when changing to other matchmodes  
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
 `/resetmatch`: unload running matchmodes  

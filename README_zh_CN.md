@@ -16,6 +16,7 @@
 ~~`thcoop2`: 有特感增强（混合插件）的战役模式~~ **(已弃用)**  
 ~~`thcoopnosiai`: 原版特感的战役模式~~ **(已弃用)**  
 `thcoop4`: 有特感增强（混合插件）&&新特感控制的战役模式  
+`thcoop4hardplus`: 有特感增强（混合插件）&&新特感控制的战役模式（困难+）  
 `thcoop4expert`: 有特感增强（混合插件）&&新特感控制的战役模式（专家）  
 `thcoop4nosiai`: 原版特感&&新特感控制的战役模式  
 `thcoop4nosiaiexpert`: 原版特感&&新特感控制的战役模式（专家）  
@@ -30,7 +31,24 @@
 17-35秒  
 ### 特感数量
 `thcoop4` 和 `thcoop4nosiai` 模式: `6 + floor((人数 - 4) / 2) * 3`，允许3个玩家控制特感位  
-`thcoop4expert` 和 `thcoop4nosiaiexpert` 模式: `4 + (人数 - 4)`，不允许玩家控制特感  
+`thcoop4hardplus` 、 `thcoop4expert` 和 `thcoop4nosiaiexpert` 模式: `4 + (人数 - 4)`，不允许玩家控制特感  
+## 困难+难度说明(thcoop4hardplus)
+**注意：本难度基于原版 `Hard` 难度，正常使用需要将难度调整为 `Hard`**  
+### 默认伤害变化(相对于原版 `Hard` 难度)
+小僵尸：x2.0  
+特殊感染者：x2.0  
+Tank：拳和石头伤害50hp  
+Witch：不变  
+友军伤害：x2.0  
+火焰伤害：x1.75  
+### 相关插件cvar说明
+`l4d_ncm_type1damage`: 小僵尸伤害倍数  
+`tank_damage_enable`: 是否启用tank伤害修改  
+`tank_damage`: tank伤害  
+`tank_damage_modifier`: tank对倒地生还者伤害相对 `tank_damage` 倍数  
+### 其他说明
+特殊感染者伤害可能没有完全更改  
+切换为其他模式时，可能需要手动执行 `/resetmatch` 才能使伤害恢复正常  
 ## Lgofnoc相关指令
 `/forcematch matchmode`: 设置服务器match模式为`matchmode`  
 `/resetmatch`: 卸载当前match模式  
