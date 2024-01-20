@@ -61,6 +61,7 @@ cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disa
 `/away`: force idle  
 `/zs`: commit suiside  
 `/csm`: change survivor model  
+`Shift + E`: mark a spot on the map at your crosshair  
 ## Management commands
 ### General commands
 `/sset num`: set server max player to `num`  
