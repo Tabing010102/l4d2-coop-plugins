@@ -59,18 +59,44 @@
 			"L4DD::CTankRock::OnRelease"
 			{
 				"signature"		"CTankRock::OnRelease"
-				"callconv"		"thiscall"
+				"linux"
+				{
+					"callconv"	"cdecl"
+				}
+				"windows"
+				{
+					"callconv"	"stdcall"
+				}
 				"return"		"void"
-				"this"			"entity"
+				"this"			"ignore"
 				"arguments"
 				{
+					"pThis"
+					{
+						"type"		"cbaseentity"
+						"linux"
+						{
+							"register"	"eax"
+						}
+						"windows"
+						{
+							"register"	"ecx"
+						}
+					}
 					"vec"
 					{
 						"type"		"vectorptr"
+						"linux"
+						{
+							"register"	"edx"
+						}
 					}
-					"ang"
+					"windows"
 					{
-						"type"		"vectorptr"
+						"ang"
+						{
+							"type"		"vectorptr"
+						}
 					}
 					"vec2"
 					{
@@ -79,6 +105,21 @@
 					"vec3"
 					{
 						"type"		"vectorptr"
+					}
+				}
+			}
+
+			"L4DD::CTankRock::BounceTouch"
+			{
+				"signature"		"CTankRock::BounceTouch"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"	"cbaseentity"
 					}
 				}
 			}
@@ -98,12 +139,95 @@
 				}
 			}
 
+			"L4DD::CTerrorPlayer::Cough"
+			{
+				"signature"		"CTerrorPlayer::Cough"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+				"arguments"
+				{
+					"player"
+					{
+						"type"		"cbaseentity"
+					}
+				}
+			}
+
+			"L4DD::CTerrorPlayer::OnIncapacitatedAsSurvivor"
+			{
+				"signature"		"CTerrorPlayer::OnIncapacitatedAsSurvivor"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"		"objectptr"
+					}
+				}
+			}
+
+			"L4DD::CTerrorPlayer::OnKnockedDown"
+			{
+				"signature"		"CTerrorPlayer::OnKnockedDown"
+				"callconv"		"thiscall"
+				"return"		"void"
+				"this"			"entity"
+				"arguments"
+				{
+					"something"
+					{
+						"type"		"int"
+					}
+				}
+			}
+
+			"L4DD::CTerrorPlayer::CancelStagger"
+			{
+				"signature"		"CTerrorPlayer::CancelStagger"
+				"callconv"		"thiscall"
+				"return"		"void"
+				"this"			"entity"
+			}
+
+			"L4DD::CTerrorPlayer::IsMotionControlledXY"
+			{
+				"signature"		"CTerrorPlayer::IsMotionControlledXY"
+				"callconv"		"thiscall"
+				"return"		"bool"
+				"this"			"entity"
+				"arguments"
+				{
+					"activity"
+					{
+						"type"		"int"
+					}
+				}
+			}
+
 			"L4DD::CTerrorPlayer::OnFalling"
 			{
 				"signature"		"CTerrorPlayer::OnFalling"
 				"callconv"		"thiscall"
 				"return"		"void"
 				"this"			"entity"
+			}
+
+			"L4DD::Witch::SetHarasser"
+			{
+				"signature"		"Witch::SetHarasser"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+				"arguments"
+				{
+					"victim"
+					{
+						"type"		"cbaseentity"
+					}
+				}
 			}
 
 			"L4DD::Tank::EnterStasis"
@@ -309,6 +433,21 @@
 				"this"			"entity"
 			}
 
+			"L4DD::CTerrorPlayer::TakeOverBot"
+			{
+				"signature"		"CTerrorPlayer::TakeOverBot"
+				"callconv"		"thiscall"
+				"return"		"bool"
+				"this"			"entity"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"	"bool"
+					}
+				}
+			}
+
 			"L4DD::CDirector::IsTeamFull"
 			{
 				"signature"		"CDirector::IsTeamFull"
@@ -365,6 +504,59 @@
 					"a1"
 					{
 						"type"	"cbaseentity"
+					}
+				}
+			}
+
+			"L4DD::CDirector::OnForceSurvivorPositions"
+			{
+				"signature"		"CDirector::OnForceSurvivorPositions"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"ignore"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"	"cbaseentity"
+					}
+				}
+			}
+
+			"L4DD::CDirector::OnReleaseSurvivorPositions"
+			{
+				"signature"		"CDirector::OnReleaseSurvivorPositions"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"ignore"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"	"objectptr"
+					}
+				}
+			}
+
+			"L4DD::SpeakResponseConceptFromEntityIO"
+			{
+				"signature"		"SpeakResponseConceptFromEntityIO"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"ignore"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"	"cbaseentity"
+					}
+					"a2"
+					{
+						"type"	"int"
+					}
+					"a3"
+					{
+						"type"	"objectptr"
 					}
 				}
 			}
@@ -521,6 +713,25 @@
 				}
 			}
 
+			"L4DD::CTerrorPlayer::DoAnimationEvent"
+			{
+				"signature"		"CTerrorPlayer::DoAnimationEvent"
+				"callconv"		"thiscall"
+				"return"		"void"
+				"this"			"entity"
+				"arguments"
+				{
+					"event"
+					{
+						"type"	"int"
+					}
+					"variant"
+					{
+						"type"	"int"
+					}
+				}
+			}
+
 			/* Works for Linux L4D2 but not L4D1, currently leaving out
 			"L4DD::CDirectorScriptedEventManager::SendInRescueVehicle"
 			{
@@ -643,6 +854,14 @@
 				}
 			}
 
+			"L4DD::CTerrorWeapon::OnSwingStart"
+			{
+				"signature"		"CTerrorWeapon::OnSwingStart"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+			}
+
 			"L4DD::CTerrorPlayer::OnShovedBySurvivor"
 			{
 				"signature"		"CTerrorPlayer::OnShovedBySurvivor"
@@ -686,7 +905,7 @@
 					}
 				}
 			}
-			
+
 			"L4DD::CTerrorWeapon::OnHit"
 			{
 				"signature"		"CTerrorWeapon::OnHit"
@@ -697,7 +916,7 @@
 				{
 					"a1"
 					{
-						"type"	"int"
+						"type"	"objectptr"
 					}
 					"a2"
 					{
@@ -714,7 +933,7 @@
 			{
 				"signature"		"CTerrorPlayer::OnShovedByPounceLanding"
 				"callconv"		"thiscall"
-				"return"		"float"
+				"return"		"void"
 				"this"			"entity"
 				"arguments"
 				{
@@ -725,6 +944,21 @@
 					"a2"
 					{
 						"type"	"int"
+					}
+				}
+			}
+
+			"L4DD::CTerrorPlayer::DropWeapons"
+			{
+				"signature"		"CTerrorPlayer::DropWeapons"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+				"arguments"
+				{
+					"a1"
+					{
+						"type"	"bool"
 					}
 				}
 			}
@@ -776,6 +1010,56 @@
 						"type"		"float"
 					}
 				}
+			}
+
+			"L4DD::CMolotovProjectile::Create"
+			{
+				"signature"		"CMolotovProjectile::Create"
+				"callconv"		"cdecl"
+				"return"		"cbaseentity"
+				"arguments"
+				{
+					"origin"
+					{
+						"type"		"vectorptr"
+					}
+					"angles"
+					{
+						"type"		"vectorptr"
+					}
+					"velocity"
+					{
+						"type"		"vectorptr"
+					}
+					"rotation"
+					{
+						"type"		"vectorptr"
+					}
+					"owner"
+					{
+						"type"		"cbaseentity"
+					}
+					"duration"
+					{
+						"type"		"float"
+					}
+				}
+			}
+
+			"L4DD::CPipeBombProjectile::Detonate"
+			{
+				"signature"		"CPipeBombProjectile::Detonate"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
+			}
+
+			"L4DD::CMolotovProjectile::Detonate"
+			{
+				"signature"		"CMolotovProjectile::Detonate"
+				"callconv"		"thiscall"
+				"return"		"int"
+				"this"			"entity"
 			}
 
 			"L4DD::CTerrorPlayer::Extinguish"
@@ -915,6 +1199,64 @@
 				}
 			}
 
+			/**
+			 * Thanks to "Psyk0tik" from: https://github.com/Psykotikism/Mutant_Tanks
+			 * CFirstAidKit::StartHealing(CFirstAidKit::HealTargetType)
+			 *
+			 * Note: Detouring as a pre-hook for changing "first_aid_kit_use_duration" per player before healing starts.
+			 * Note: Detouring as a post-hook for changing "first_aid_kit_use_duration" back to default value after healing starts.
+			 * Note for Linux users: Function prototype uses custom registers including the "this" pointer which needs to be registered as param 1.
+			 **/
+			"L4DD::CFirstAidKit::StartHealing"
+			{
+				"signature"	"CFirstAidKit::StartHealing"
+				"linux"
+				{
+					"callconv"	"cdecl"
+					"return"	"void"
+					"this"		"ignore"
+					"arguments"
+					{
+						"this"
+						{
+							"type"		"cbaseentity"
+							"register"	"eax"
+						}
+						"targetType"
+						{
+							"type"		"int"
+							"register"	"edx"
+						}
+					}
+				}
+				"mac"
+				{
+					"callconv"	"thiscall"
+					"return"	"void"
+					"this"		"entity"
+					"arguments"
+					{
+						"targetType"
+						{
+							"type"		"int"
+						}
+					}
+				}
+				"windows"
+				{
+					"callconv"	"thiscall"
+					"return"	"void"
+					"this"		"entity"
+					"arguments"
+					{
+						"targetType"
+						{
+							"type"		"int"
+						}
+					}
+				}
+			}
+
 			"L4DD::CServerGameDLL::ServerHibernationUpdate"
 			{
 				"signature"		"CServerGameDLL::ServerHibernationUpdate"
@@ -938,6 +1280,19 @@
 		// ====================================================================================================
 		"Addresses"
 		{
+			"ammoDef"
+			{
+				"linux"
+				{
+					"signature"	"ammoDef"
+				}
+				"windows"
+				{
+					"signature"	"CTerrorAmmoDefSystem::Init"
+					"read"		"38"
+				}
+			}
+
 			"CDirector"
 			{
 				"windows"
@@ -1007,6 +1362,19 @@
 				}
 			}
 
+			"TheNavAreas"
+			{
+				"windows"
+				{
+					"signature" "nav_update_lighting"
+					"read" "82"
+				}
+				"linux"
+				{
+					"signature" "TheNavAreas"
+				}
+			}
+
 			"TerrorNavMesh"
 			{
 				"windows"
@@ -1022,6 +1390,19 @@
 			}
 
 			// Used for dynamic searching of memory address for SDKCall
+			"CDirector::AreAllSurvivorsInFinaleArea"
+			{
+				"windows"
+				{
+					"signature" "CDirector::AreAllSurvivorsInFinaleArea"
+					"read" "258"
+				}
+				"linux"
+				{
+					"signature" "CDirector::AreAllSurvivorsInFinaleArea"
+				}
+			}
+
 			"Molotov_StrFind"
 			{
 				"signature"	"Molotov_StrFind"
@@ -1037,6 +1418,18 @@
 				"linux"
 				{
 					"signature" "ClearTeamScores_Director"
+				}
+			}
+
+			"CTerrorPlayer::CanBecomeGhost::Address"
+			{
+				"windows"
+				{
+					"signature" "CTerrorPlayer::CanBecomeGhost"
+				}
+				"linux"
+				{
+					"signature" "CTerrorPlayer::CanBecomeGhost"
 				}
 			}
 		}
@@ -1071,12 +1464,6 @@
 				"linux"		"324"
 			}
 
-			"CTerrorPlayer::DoAnimationEvent"
-			{
-				"windows"	"484"
-				"linux"		"485"
-			}
-
 			/*
 			* CTerrorPlayer::Deafen(float,float,float)
 			*/
@@ -1095,11 +1482,20 @@
 				"linux"		"310"
 			}
 
+			/*
+			* CBaseEntity::WorldSpaceCenter(CBaseEntity *this)
+			*/
+			"CBaseEntity::WorldSpaceCenter"
+			{
+				"windows"	"147"
+				"linux"		"148"
+			}
+
 
 
 			// VARIOUS OFFSETS
 
-			// Offset to the "push" call: e.g. 68 14 D7 50 10                          push    offset aMolotovProject_0 ; "Molotov projectile spawned at %f %f %f,"...
+			// Offset to the "push" call: e.g. 68 14 D7 50 10						  push	offset aMolotovProject_0 ; "Molotov projectile spawned at %f %f %f,"...
 			"Molotov_OffsetPush"
 			{
 				"windows"	"75"
@@ -1119,6 +1515,21 @@
 			{
 				"windows"	"652"
 				"linux"		"648"
+			}
+			"CTerrorPlayer::CanBecomeGhost::Offset"
+			{
+				"windows"	"1460"
+				"linux"		"1644"
+			}
+			"CTerrorPlayer::CanBecomeGhost::Bytes"
+			{
+				"windows"	"81" // 0x51
+				"linux"		"137" // 0x89
+			}
+			"CTerrorPlayer::CanBecomeGhost::Count"
+			{
+				"windows"	"11"
+				"linux"		"8"
 			}
 			"m_PendingMobCount"
 			{
@@ -1201,6 +1612,20 @@
 				"linux"		"356"
 			}
 
+			/* CNavArea::InheritAttributes(CNavArea *this, CNavArea *, CNavArea *) */
+			"m_attributeFlags"
+			{
+				"windows"	"84"
+				"linux"		"84"
+			}
+			/* TerrorNavArea::SetSpawnAttributes(TerrorNavArea *__hidden this, unsigned int) */
+			/* Search "Survivor main path is too long to transmit" and verify windows in call below */
+			"m_spawnAttributes"
+			{
+				"windows"	"300"
+				"linux"		"304"
+			}
+
 
 
 			// l4d2weapons.inc offsets - Offsets can be found in: "CTerrorWeaponInfo::Parse" - "CCSWeaponInfo::Parse" - "FileWeaponInfo_t::Parse" - "CTerrorGun::DoViewPunch"
@@ -1220,10 +1645,20 @@
 				"windows"	"352"
 				"linux"		"352"
 			}
+			"L4D2IntWeapon_DefaultSize"
+			{
+				"windows"	"360"
+				"linux"		"360"
+			}
 			"L4D2IntWeapon_Bucket"
 			{
 				"windows"	"344"
 				"linux"		"344"
+			}
+			"L4D2IntWeapon_Type" // Search: "WeaponType" for offset
+			{
+				"windows"	"2196"
+				"linux"		"2196"
 			}
 
 			// L4D2FloatWeapon
@@ -1370,6 +1805,20 @@
 		// ====================================================================================================
 		"Signatures"
 		{
+			"ammoDef"
+			{
+				"library"		"server"
+				"linux"			"@_ZL7ammoDef"
+			}
+
+			"CTerrorAmmoDefSystem::Init"
+			{
+				"library"		"server"
+				"windows"		"\xD9\x05\x2A\x2A\x2A\x2A\x6A\x0E\x6A\x0A\x6A\x04\x2A\xD9\x2A\x2A\x68\x2A\x2A\x2A\x2A\x6A\x00\x6A\x00\x6A\x01\x68\x02\x00\x00\x80"
+								/* not actual function beginning, starts at the second call */
+								/* D9 05 ? ? ? ? 6A 0E 6A 0A 6A 04 ? D9 ? ? 68 ? ? ? ? 6A 00 6A 00 6A 01 68 02 00 00 80 */
+			}
+
 			// =========================
 			// SILVERS SIGS
 			// =========================
@@ -1463,6 +1912,19 @@
 			}
 
 			/*
+			 * CBaseEntity::WorldSpaceCenter(CBaseEntity *this)
+			 */
+			"CBaseEntity::WorldSpaceCenter"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK11CBaseEntity16WorldSpaceCenterEv"
+				"windows"	"\x56\x57\x8B\x2A\xE8\x2A\x2A\x2A\x2A\x8B\x2A\xE8\x2A\x2A\x2A\x2A\xD9\x2A\x2A\xD8\x2A\x2A\x57"
+				/* 56 57 8B ? E8 ? ? ? ? 8B ? E8 ? ? ? ? D9 ? ? D8 ? ? 57 */
+				// Windows signature is wrong? Crashes on call
+				/* Search: "removing %d (%d): %s : %5.3f (%.3f)\n" use VTable to count up (about 40 entries). */
+			}
+
+			/*
 			 * CBaseEntity::ApplyLocalAngularVelocityImpulse(CBaseEntity *this, const Vector *a2)
 			 */
 			"CBaseEntity::ApplyLocalAngularVelocityImpulse"
@@ -1514,6 +1976,30 @@
 			}
 
 			/*
+			*  CPipeBombProjectile::Detonate(CPipeBombProjectile *this)
+			*  Search: "weapon_pipebomb_dirt"
+			*/
+			"CPipeBombProjectile::Detonate"
+			{
+				"library"	"server"
+				"linux"		"@_ZN19CPipeBombProjectile8DetonateEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x8B\x2A\x8B\x2A\x2A\x2A\x2A\x2A\xC1\x2A\x2A\xA8\x2A\x57\x74\x2A\xE8\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x89\x2A\x2A\x2A\xD9"
+				/* ? ? ? ? ? ? 53 55 56 8B ? 8B ? ? ? ? ? C1 ? ? A8 ? 57 74 ? E8 ? ? ? ? 8B ? ? ? ? ? 8B ? ? ? ? ? 8B ? ? ? ? ? 89 ? ? ? D9 */
+			}
+
+			/*
+			*  CMolotovProjectile::Detonate(CMolotovProjectile *this)
+			*  Search: "hegrenade_detonate" - the function that contains "Molotov.Loop"
+			*/
+			"CMolotovProjectile::Detonate"
+			{
+				"library"	"server"
+				"linux"		"@_ZN18CMolotovProjectile8DetonateEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x81\x2A\x2A\x2A\x2A\x2A\x53\x56\x57\x8B\x2A\xE8\x2A\x2A\x2A\x2A\x8B\x2A\xF6"
+				/* ? ? ? ? ? ? 81 ? ? ? ? ? 53 56 57 8B ? E8 ? ? ? ? 8B ? F6 */
+			}
+
+			/*
 			 * CTerrorPlayer::OnPouncedOnSurvivor(CTerrorPlayer *this, CTerrorPlayer *)
 			 */
 			"CTerrorPlayer::OnPouncedOnSurvivor"
@@ -1554,6 +2040,26 @@
 				"linux"		"@_ZN13CTerrorPlayer10ExtinguishEv"
 				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x8B\xB7\x2A\x2A\x2A\x2A\x68"
 				/* ? ? ? ? ? ? 8B ? 8B B7 ? ? ? ? 68 */
+			}
+
+			/**
+			 * Thanks to "Psyk0tik" from: https://github.com/Psykotikism/L4D1-2_Signatures
+			 * CTerrorPlayer::FindUseEntity(float, float, bool *)
+			 *
+			 * How to find on Windows:
+			 * 1. Find the function's offsets with asherkin's VTable dump.
+			 * 2. In IDA Pro, go to the ".rdata" section of the Windows binary.
+			 * 3. Search for "CTerrorPlayer::`vftable'" to jump to the "CTerrorPlayer" vtable.
+			 * 4. Compare your dump's offsets with asherkin's dump's offsets to find the target function.
+			 * 5. Look for the target function in the Windows binary.
+			 **/
+			"CTerrorPlayer::FindUseEntity"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer13FindUseEntityEffPb"
+				"mac"		"@_ZN13CTerrorPlayer13FindUseEntityEffPb"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\xB8\x2A\x2A\x2A\x2A\xE8\x2A\x2A\x2A\x2A\xD9\x2A\xD9\x2A\x2A\x53"
+				/* ? ? ? ? ? ? B8 ? ? ? ? E8 ? ? ? ? D9 ? D9 ? ? 53 */
 			}
 
 			/*
@@ -1618,6 +2124,15 @@
 				/* Search "Couldn't find a %s Spawn position in %d tries\n", some calls below */
 			}
 
+			"CTerrorPlayer::WarpToValidPositionIfStuck"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer26WarpToValidPositionIfStuckEv.part.204"
+				"windows"	"\x55\x8B\x2A\x83\x2A\x2A\x81\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x8B\x2A\x80\x2A\x2A\x2A\x2A\x2A\x2A\x57"
+				/* 55 8B ? 83 ? ? 81 ? ? ? ? ? 53 55 56 8B ? 80 ? ? ? ? ? ? 57 */
+				/* Search: "unsticking %s from %.1f %.1f %.1f to %.1f %.1f %.1f\n" */
+			}
+
 			/*
 			*  Director::HasAnySurvivorLeftSafeArea(void)
 			*/
@@ -1643,6 +2158,42 @@
 			}
 
 			/*
+			*  TerrorNavMesh::GetInitialCheckpoint(TerrorNavMesh *this)
+			*/
+			"TerrorNavMesh::GetInitialCheckpoint"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK13TerrorNavMesh20GetInitialCheckpointEv"
+				"windows"	"\x83\x2A\x2A\x57\x8B\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x89\x2A\x2A\x2A\xE8\x2A\x2A\x2A\x2A\x84\x2A\x75"
+				/* 83 ? ? 57 8B ? 8B ? ? ? ? ? 89 ? ? ? E8 ? ? ? ? 84 ? 75 */
+				/* Search "Checkpoint bounds: %f %f %f --> %f %f %f and has %d weapon spawns\n" first call near top is target function */
+			}
+
+			/*
+			*  Checkpoint::ContainsArea(TerrorNavArea *)const
+			*/
+			"Checkpoint::ContainsArea"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK10Checkpoint12ContainsAreaEP13TerrorNavArea"
+				"windows"	"\x8B\x2A\x2A\x33\x2A\x85\x2A\x56\x7E\x2A\x8B\x2A\x8B\x2A\x2A\x2A\x39\x2A\x74"
+				/* 8B ? ? 33 ? 85 ? 56 7E ? 8B ? 8B ? ? ? 39 ? 74 */
+				/* Search "Haven't left the initial checkpoint yet" compare with Linux to find function call */
+			}
+
+			/*
+			*  TerrorNavMesh::GetLastCheckpoint(TerrorNavMesh *this)
+			*/
+			"TerrorNavMesh::GetLastCheckpoint"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK13TerrorNavMesh17GetLastCheckpointEv"
+				"windows"	"\x8B\x2A\x2A\x2A\x2A\x2A\x56\x33\x2A\x85\x2A\x57\x7E\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x8B\x2A\x80"
+				/* 8B ? ? ? ? ? 56 33 ? 85 ? 57 7E ? 8B ? ? ? ? ? 8B ? 8B ? 80 */
+				/* Search "No finale radio could be found.\n" - target is first sub call in this function */
+			}
+
+			/*
 			*  Director::IsAnySurvivorInExitCheckpoint(void)const
 			*/
 			"CDirector::IsAnySurvivorInExitCheckpoint"
@@ -1652,6 +2203,43 @@
 				"windows"	"\x51\x8D\x2A\x2A\x50\xC6\x2A\x2A\x2A\x2A\xC6"
 				/* 51 8D ? ? 50 C6 ? ? ? ? C6 */
 				/* Search "tank_frustrated", below "HasAnySurvivorLeftSafeArea" call */
+			}
+
+			/*
+			 * Director::AreAllSurvivorsInFinaleArea(Director *__hidden this)
+			 */
+			"CDirector::AreAllSurvivorsInFinaleArea"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK8Director27AreAllSurvivorsInFinaleAreaEv"
+				"windows"	"\x56\x8B\x2A\x80\x2A\x2A\x2A\x2A\x2A\x2A\x0F\x85\x2A\x2A\x2A\x2A\x53\x8B"
+				/* 56 8B ? 80 ? ? ? ? ? ? 0F 85 ? ? ? ? 53 8B */
+				/*
+				*	1. Search "(MOB) %3.2f: MOB SPAWN ERROR: Empty spawn area set, switching to ANYWHERE\n" target call is above and below
+				*	3. Rename function to make it easier to see.
+				*	4. Search: "waiting_checkpoint_button_used" to get into "CFinaleTrigger::Use"
+				*	5. Using this function and offset to our call to obtain target function (since it's bytes are too short and not unique)
+				*/
+			}
+
+			/**
+			 * Thanks to "Psyk0tik" from: https://github.com/Psykotikism/L4D1-2_Signatures
+			 * float NavAreaTravelDistance<ShortestPathCost>(Vector const&, Vector const&, ShortestPathCost &)
+			 *
+			 * How to find on Windows:
+			 * 1. Find the "CNavArea::ComputeEarliestOccupyTimes" function's offsets with asherkin's VTable dump.
+			 * 2. In IDA Pro, go to the ".rdata" section of the Windows binary.
+			 * 3. Search for "CNavArea::`vftable'" to jump to the "CNavArea" vtable.
+			 * 4. Compare your dump's offsets with asherkin's dump's offsets to find the "CNavArea::ComputeEarliestOccupyTimes" function.
+			 * 5. Look for the "CNavArea::ComputeEarliestOccupyTimes" function in the Windows binary.
+			 * 6. The first function call above both "info_player_counterterrorist" strings in "CNavArea::ComputeEarliestOccupyTimes" should be this function.
+			 **/
+			"NavAreaTravelDistance"
+			{
+				"library"	"server"
+				"linux"		"@_Z21NavAreaTravelDistanceI16ShortestPathCostEfRK6VectorS3_RT_.constprop.127"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\xD9\x05\x2A\x2A\x2A\x2A\x83\x2A\x2A\x53\x8B"
+				/* ? ? ? ? ? ? D9 05 ? ? ? ? 83 ? ? 53 8B */
 			}
 
 			/**
@@ -1751,6 +2339,28 @@
 			}
 
 			/**
+			 * CTankRock::BounceTouch(CBaseEntity *)
+			 *
+			 * How to find on Windows:
+			 * 1a. Search for the "HulkZombie.ThrownProjectileHit" string.
+			 * 2a. One of the functions that references that string should be this function.
+			 *
+			 * 1b. Find the function's offsets with asherkin's VTable dump.
+			 * 2b. In IDA Pro, go to the ".rdata" section of the Windows binary.
+			 * 3b. Search for "CTankRock::`vftable'" to jump to the "CTankRock" vtable.
+			 * 4b. Compare your dump's offsets with asherkin's dump's offsets to find the target function.
+			 * 5b. Look for the target function in the Windows binary.
+			 **/
+			"CTankRock::BounceTouch"
+			{
+				"library"	"server"
+				"linux"		"@_ZN9CTankRock11BounceTouchEP11CBaseEntity"
+				"mac"		"@_ZN9CTankRock11BounceTouchEP11CBaseEntity"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x53\x8B\x9C\x2A\x2A\x2A\x2A\x2A\x0F"
+						/* ? ? ? ? ? ? 53 8B 9C ? ? ? ? ? 0F */
+			}
+
+			/**
 			 * Thanks to "Psyk0tik" from: https://github.com/Psykotikism/L4D1-2_Signatures
 			 * CDeathFallCamera::Enable(CBasePlayer*)
 			 *
@@ -1769,6 +2379,38 @@
 						/* ? ? ? ? ? ? 8B ? 8B ? E8 ? ? ? ? 85 ? 74 ? 6A */
 			}
 
+			/* CTerrorPlayer::Cough(CTerrorPlayer *this, CBasePlayer *) */
+			"CTerrorPlayer::Cough"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer5CoughEP11CBasePlayer"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x83\x2A\x2A\x0F\x85\x2A\x2A\x2A\x2A\x80\x2A\x2A\x2A\x2A\x2A\x2A\x57"
+				/* ? ? ? ? ? ? ? ? 83 ? ? 0F 85 ? ? ? ? 80 ? ? ? ? ? ? 57 */
+				/* Search "#L4D_idle_spectator" xref to VTable, target is function above. */
+			}
+
+			/* CTerrorPlayer::OnIncapacitatedAsSurvivor(CTerrorPlayer *this, const CTakeDamageInfo *) */
+			"CTerrorPlayer::OnIncapacitatedAsSurvivor"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer25OnIncapacitatedAsSurvivorERK15CTakeDamageInfo"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x53\x55\x8B\x2A\x2A\x2A\x2A\x2A\x2A\x56\x57\x6A\x2A\x8B"
+				/* ? ? ? ? ? ? 53 55 8B ? ? ? ? ? ? 56 57 6A ? 8B */
+				/* Search "PlayerIncapacitated" */
+			}
+
+			/**
+			 *  Witch::SetHarasser(Witch *this, CBaseEntity *)
+			 **/
+			"Witch::SetHarasser"
+			{
+				"library"	"server"
+				"linux"		"@_ZN5Witch11SetHarasserEP11CBaseEntity"
+				"windows"	"\x53\x56\x8B\x2A\x2A\x2A\x85\x2A\x8B\x2A\x74\x2A\x8B"
+				/* 53 56 8B ? ? ? 85 ? 8B ? 74 ? 8B */
+				/* Search: "witchid" and compare to linux, one with strings only related to the event and without other random strings */
+			}
+
 			/**
 			 * Thanks to "Psyk0tik" from: https://github.com/Psykotikism/L4D1-2_Signatures
 			 * CTerrorPlayer::OnFalling()
@@ -1783,6 +2425,16 @@
 				"linux"		"@_ZN13CTerrorPlayer9OnFallingEv"
 				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x57\x8B\x2A\xE8\x2A\x2A\x2A\x2A\x83\x2A\x2A\x0F\x85\x2A\x2A\x2A\x2A\x8D"
 						/* ? ? ? ? ? ? 57 8B ? E8 ? ? ? ? 83 ? ? 0F 85 ? ? ? ? 8D */
+			}
+
+			/* CTerrorPlayer::EstimateFallingDamage(CTerrorPlayer *this) */
+			"CTerrorPlayer::EstimateFallingDamage"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer21EstimateFallingDamageEv"
+				"windows"	"\x81\x2A\xC8\x00\x00\x00\x57\x8B\x2A\x8B\x2A\x8B"
+				/* 81 ? C8 00 00 00 57 8B ? 8B ? 8B */
+				/* Search "Too many traces, %f damage, %d iterations\n" */
 			}
 
 			/**
@@ -2043,6 +2695,42 @@
 			}
 
 			/*
+			 * CDirector::OnForceSurvivorPositions()
+			 */
+			"CDirector::OnForceSurvivorPositions"
+			{
+				"library"	"server"
+				"linux"		"@_ZN8Director24OnForceSurvivorPositionsERK10CUtlVectorIP13CTerrorPlayer10CUtlMemoryIS2_iEE"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x33\x2A\x57\x68\x2A\x2A\x2A\x2A\x33\x2A\x33"
+				/* ? ? ? ? ? ? 33 ? 57 68 ? ? ? ? 33 ? 33 */
+				/* Search "finale_vehicle_leaving" bottom of function returns the call to target function. */
+			}
+
+			/*
+			 * CDirector::OnReleaseSurvivorPositions(CUtlVector<CTerrorPlayer *, CUtlMemory<CTerrorPlayer *, int>> const&)
+			 */
+			"CDirector::OnReleaseSurvivorPositions"
+			{
+				"library"	"server"
+				"linux"		"@_ZN8Director26OnReleaseSurvivorPositionsERK10CUtlVectorIP13CTerrorPlayer10CUtlMemoryIS2_iEE"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x8D\x2A\x2A\x2A\x57\x50\x89\x2A\x2A\x2A\x89\x2A\x2A\x2A\x89\x2A\x2A\x2A\x89\x2A\x2A\x2A\x89\x2A\x2A\x2A\xE8\x2A\x2A\x2A\x2A\x8B"
+				/* ? ? ? ? ? ? ? 8D ? ? ? 57 50 89 ? ? ? 89 ? ? ? 89 ? ? ? 89 ? ? ? 89 ? ? ? E8 ? ? ? ? 8B */
+				/* Search "ReleaseSurvivorPositions" bellow is target call. */
+			}
+
+			/*
+			 * SpeakResponseConceptFromEntityIO(CBaseEntity *, CAI_Expresser *, inputdata_t)
+			 */
+			"SpeakResponseConceptFromEntityIO"
+			{
+				"library"	"server"
+				"linux"		"@_ZN14CFlexExpresser25InputSpeakResponseConceptER11inputdata_t"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x8B\x2A\x2A\x2A\x2A\x2A\x2A\x83\x2A\x2A\x2A\x57\x8D\x2A\x2A\x8B"
+				/* ? ? ? ? ? ? 53 55 56 8B ? ? ? ? ? ? 83 ? ? ? 57 8D ? ? 8B */
+				/* Search "faulty context k:v pair in entity io %s\n" */
+			}
+
+			/*
 			 * CTerrorPlayer::GetCrouchTopSpeed(void)const
 			 * Search: "Weapon.Swing", can find through here, compare to Linux.
 			 */
@@ -2159,6 +2847,18 @@
 			}
 
 			/*
+			 * CTerrorPlayer::DoAnimationEvent(PlayerAnimEvent_t, int)
+			 */
+			"CTerrorPlayer::DoAnimationEvent"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer16DoAnimationEventE17PlayerAnimEvent_ti"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x83\x2A\x2A\x55\x8B\x2A\x0F\x84\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x56"
+				/* ? ? ? ? ? ? 83 ? ? 55 8B ? 0F 84 ? ? ? ? 8B ? ? ? ? ? 56 */
+				/* Search "NULL Ent in GiveNamedItem!\n" (function with "weapon_shield" inside) - xref to VTable, few entries down */
+			}
+
+			/*
 			 * CDirectorScriptedEventManager::SendInRescueVehicle(void)
 			 *
 			 * find by String "FinaleEscapeStarted"
@@ -2226,7 +2926,19 @@
 				"library"	"server"
 				"linux"		"@_ZN13CTerrorPlayer11OnStaggeredEP11CBaseEntityPK6Vector.part.712"
 			}
-			
+
+			/*
+			 *  CTerrorWeapon::OnSwingStart(CTerrorWeapon *this)
+			 */
+			"CTerrorWeapon::OnSwingStart"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorWeapon12OnSwingStartEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x56\x57\x8B\x2A\xE8\x2A\x2A\x2A\x2A\x8B\x2A\x85\x2A\x0F\x84\x2A\x2A\x2A\x2A\x8B\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x2A\x84\x2A\x0F\x84\x2A\x2A\x2A\x2A\x53"
+				/* ? ? ? ? ? ? 56 57 8B ? E8 ? ? ? ? 8B ? 85 ? 0F 84 ? ? ? ? 8B ? 8B ? ? ? ? ? 8B ? ? ? 84 ? 0F 84 ? ? ? ? 53 */
+				/* Search: "Weapon.Swing" */
+			}
+
 			/*
 			 * CTerrorPlayer::OnShovedBySurvivor(CTerrorPlayer*, Vector const&)
 			 */
@@ -2246,7 +2958,7 @@
 				"library"	"server"
 				"linux" 	"@_ZN13CTerrorPlayer18OnShovedBySurvivorEPS_RK6Vector.part.824.constprop.1109"
 			}
-			
+
 			/*
 			* CTerrorWeapon::OnHit(CGameTrace &, Vector const&, bool)
 			*/
@@ -2272,6 +2984,18 @@
 			}
 
 			/*
+			* CTerrorPlayer::DropWeapons(CTerrorPlayer *this, bool a2)
+			*/
+			"CTerrorPlayer::DropWeapons"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer11DropWeaponsEb"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x83\x2A\x2A\x0F\x84\x2A\x2A\x2A\x2A\x6A\x2A\x68\x2A\x2A\x2A\x2A\x8B"
+				/* ? ? ? ? ? ? ? ? 83 ? ? 0F 84 ? ? ? ? 6A ? 68 ? ? ? ? 8B */
+				/* Search: "Survivor %s changed model from %s to %s via SetModelFromClass". Xref to VTable. 2 entries down. */
+			}
+
+			/*
 			* CInferno::Spread(Vector const&)
 			*/
 			"CInferno::Spread"
@@ -2292,8 +3016,8 @@
 			{
 				"library"	"server"
 				"linux"		"@_ZN11SurvivorBot15UseHealingItemsEP6ActionIS_E"
-				"windows"	"\x83\x2A\x2A\x56\x57\x8B\x2A\x8D\x2A\x2A\x2A\x2A\x2A\x8B\x2A\xE8"
-				/* 83 ? ? 56 57 8B ? 8D ? ? ? ? ? 8B ? E8 */
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x8D\x2A\x2A\x2A\x2A\x2A\x8B\x2A\xE8\x2A\x2A\x2A\x2A\xD8\x2A\x2A\xDF\x2A\xF6\x2A\x2A\x74\x2A\x8B\x2A\x2A\x2A\x33"
+				/* ? ? ? ? ? 8B ? 8D ? ? ? ? ? 8B ? E8 ? ? ? ? D8 ? ? DF ? F6 ? ? 74 ? 8B ? ? ? 33 */
 			}
 
 			/*
@@ -2318,6 +3042,25 @@
 				"windows"		"\x81\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x8B\x2A\x8B\x2A\x8B\x2A\x2A\x57\x8D"
 				/* 81 ? ? ? ? ? 53 55 56 8B ? 8B ? 8B ? ? 57 8D */
 				/* Search: "Fire prop detonated %.0f,%.0f,%.0f.  Breaker:%s. Attacker:%s.\n" */
+			}
+
+			/**
+			 * Thanks to "Psyk0tik" from: https://github.com/Psykotikism/Mutant_Tanks
+			 * CFirstAidKit::StartHealing(CFirstAidKit::HealTargetType)
+			 *
+			 * Note: Used for detouring the function.
+			 *
+			 * How to find on Windows:
+			 * 1. Search for the "PlayerHealing" or "PlayerHealingOther" string.
+			 * 2. The string can only be found in this function.
+			 **/
+			"CFirstAidKit::StartHealing"
+			{
+				"library"	"server"
+				"linux"		"@_ZN12CFirstAidKit12StartHealingENS_14HealTargetTypeE.part.43"
+				"mac"		"@_ZN12CFirstAidKit12StartHealingENS_14HealTargetTypeE"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x8D\xB1\x2A\x2A\x2A\x2A\x57\x89"
+						/* ? ? ? ? ? ? ? ? 53 55 56 8D B1 ? ? ? ? 57 89 */
 			}
 
 			"BossZombiePlayerBot::ChooseVictim"
@@ -2432,6 +3175,18 @@
 			}
 
 			/*
+			 * CNavArea::IsConnected(CNavArea const*, NavDirType)const
+			 */
+			"CNavArea::IsConnected"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK8CNavArea11IsConnectedEPKS_10NavDirType"
+				"windows"	"\x55\x8B\x2A\x2A\x2A\x3B\x2A\x75\x2A\xB0\x2A\x5D\xC2"
+				/* 55 8B ? ? ? 3B ? 75 ? B0 ? 5D C2 */
+				/* Search: "ScriptIsConnectedArea" - Go to unique sub below, return at the bottom calls target function */
+			}
+
+			/*
 			 * CTerrorPlayer::GetFlowDistance(TerrorNavArea::FlowType)const
 			 */
 			"CTerrorPlayer::GetFlowDistance"
@@ -2522,14 +3277,28 @@
 			}
 
 			/*
+			 * SurvivorBot::SetHumanSpectator(CTerrorPlayer*)
+			 * Very similar to BossZombiePlayerBot::SetHumanSpectator()
+			 * SurvivorBot version has 5 xref (one of them is CTerrorPlayer::TakeOverBot), BossZombie has just 1 (CTerrorPlayer::TakeOverBot)
+			 */
+			"CTerrorPlayer::GoAwayFromKeyboard"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer18GoAwayFromKeyboardEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x8B\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x6A\x2A\x6A\x2A\x6A\x2A\xFF"
+				/* ? ? ? ? ? ? 8B ? 8B ? 8B ? ? ? ? ? 8B ? ? ? ? ? 6A ? 6A ? 6A ? FF */
+				/* Search "player_afk" */
+			}
+
+			/*
 			 * CTerrorPlayer::TakeOverBot
 			 */
 			// Taken from "Survivor Bot Takeover" by "muukis"
 			"CTerrorPlayer::TakeOverBot"
 			{
 				"library"	"server"
-				"linux"	  "@_ZN13CTerrorPlayer11TakeOverBotEb"
-				"windows" "\x81\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x57\x8D\x2A\x2A\x2A\x8B\xF9\x33\xDB\x50"
+				"linux"		"@_ZN13CTerrorPlayer11TakeOverBotEb"
+				"windows"	"\x81\x2A\x2A\x2A\x2A\x2A\x53\x55\x56\x57\x8D\x2A\x2A\x2A\x8B\xF9\x33\xDB\x50"
 			}
 
 			/*
@@ -2539,8 +3308,21 @@
 			"SurvivorBot::SetHumanSpectator"
 			{
 				"library"	"server"
-				"linux"   "@_ZN11SurvivorBot17SetHumanSpectatorEP13CTerrorPlayer"
-				"windows" "\x53\x8B\xD9\x83\x2A\x2A\x2A\x2A\x2A\x2A\x56\x8D\x2A\x2A\x2A\x2A\x2A\x7E\x07\x5E\x32\xC0\x5B\xC2\x04\x00"
+				"linux"		"@_ZN11SurvivorBot17SetHumanSpectatorEP13CTerrorPlayer"
+				"windows"	"\x53\x8B\xD9\x83\x2A\x2A\x2A\x2A\x2A\x2A\x56\x8D\x2A\x2A\x2A\x2A\x2A\x7E\x07\x5E\x32\xC0\x5B\xC2\x04\x00"
+			}
+
+			/*
+			 * CTerrorPlayer::SetBecomeGhostAt(CTerrorPlayer *this, float s2)
+			 * unique string "ghost_spawn_time"
+			 */
+			"CTerrorPlayer::SetBecomeGhostAt"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer16SetBecomeGhostAtEf"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x68\x2A\x2A\x2A\x2A\x8B\x2A\x68\x2A\x2A\x2A\x2A\xD9\x2A\x2A\x2A\x2A\x2A\xA1"
+				/* ? ? ? ? ? ? ? 68 ? ? ? ? 8B ? 68 ? ? ? ? D9 ? ? ? ? ? A1 */
+				/* Search: "ghost_spawn_time" target is called is above */
 			}
 
 
@@ -2561,16 +3343,64 @@
 			}
 
 			/*
+			*	CTerrorPlayer::OnKnockedDown(CBasePlayer *a1, int a2)
+			*	Search: "Survivor was lunged while %sfacing the hunter and %sbashing\n". This function contains a sub calling with the param (1).
+			*/
+			"CTerrorPlayer::OnKnockedDown"
+			{
+				"library"		"server"
+				"linux"			"@_ZN13CTerrorPlayer13OnKnockedDownENS_19KnockdownReasonTypeE"
+				"windows"		"\x2A\x2A\x2A\x2A\x2A\x2A\x8D\x2A\x2A\x2A\x2A\x2A\x8B\x2A\xE8\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x7B\x2A\x8B\x2A\x2A\x8B\x2A\x8D\x2A\x2A\x57\x2A\x2A\xD9\x2A\x2A\x2A\xD9\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x74\x2A\x80"
+				/* ? ? ? ? ? ? 8D ? ? ? ? ? 8B ? E8 ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 7B ? 8B ? ? 8B ? 8D ? ? 57 ? ? D9 ? ? ? D9 ? 8B ? ? ? ? ? ? ? ? ? ? ? ? ? ? ? 74 ? 80 */
+			}
+
+			/*
 			 * CTerrorPlayer::CancelStagger(void) - used by the game to stop Survivor Staggering as something else happens
 			 */
 			"CTerrorPlayer::CancelStagger"
 			{
 				"library"	"server"
 				"linux"		"@_ZN13CTerrorPlayer13CancelStaggerEv"
-				"windows"	"\xD9\x2A\x2A\x2A\x2A\x2A\x56\x57\x8B\x2A\xD8\x2A\x78\x2A\x2A\x2A\x8D"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x56\x57\x8B\x2A\xD8\x2A\x78\x2A\x2A\x2A\x8D"
 				/* Sig may break, using offsets to make unique */
-				/* D9 ? ? ? ? ? 56 57 8B ? D8 ? 78 ? ? ? 8D */
+				/* ? ? ? ? ? ? 56 57 8B ? D8 ? 78 ? ? ? 8D */
 				/* Search "SurvivorWasPounced" - few calls above. */ // Found by SilverShot.
+			}
+
+			/*
+			 * CTerrorPlayer::IsMotionControlledXY(Activity)const
+			 */
+			"CTerrorPlayer::IsMotionControlledXY"
+			{
+				"library"	"server"
+				"linux"		"@_ZNK13CTerrorPlayer20IsMotionControlledXYE8Activity"
+				"windows"	"\x8B\x2A\x2A\x2A\x05\x2A\x2A\x2A\x2A\x3D\x2A\x2A\x2A\x2A\x77"
+				/* 8B ? ? ? 05 ? ? ? ? 3D ? ? ? ? 77 */
+				/* Search "Motion controlled animation" - few calls above. */ // Found by "SilverShot"
+			}
+
+			/*
+			 * CTerrorPlayer::ReleaseTongueVictim(CTerrorPlayer *this, bool)
+			 */
+			"CTerrorPlayer::ReleaseTongueVictim"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer19ReleaseTongueVictimEb"
+				"windows"	"\x8B\x2A\x2A\x2A\x2A\x2A\x83\x2A\x2A\x55\x8B\x2A\x8B\x2A\x2A\x2A\x2A\x2A\x83\x2A\x2A\x57"
+				/* 8B ? ? ? ? ? 83 ? ? 55 8B ? 8B ? ? ? ? ? 83 ? ? 57 */
+				/* Search: "Tongue letting go because of damage" target function is called not far below */ // Found by "SilverShot".
+			}
+
+			/*
+			 * CTerrorPlayer::OnPounceEnded(CTerrorPlayer *this)
+			 */
+			"CTerrorPlayer::OnPounceEnded"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer13OnPounceEndedEv"
+				"windows"	"\x53\x8B\x2A\x80\x2A\x2A\x2A\x2A\x2A\x2A\x56\x74\x2A\x8D"
+				/* 53 8B ? 80 ? ? ? ? ? ? 56 74 ? 8D */
+				/* Search: "pounce_end */ // Found by "SilverShot".
 			}
 
 			/*
@@ -2652,6 +3482,18 @@
 				/* Search: "Tank Count = %d\n" xref easily matched */
 			}
 
+			/*
+			* CTerrorPlayer::CleanupPlayerState(CTerrorPlayer *this)
+			*/
+			"CTerrorPlayer::CleanupPlayerState"
+			{
+				"library"	"server"
+				"linux"		"@_ZN13CTerrorPlayer18CleanupPlayerStateEv"
+				"windows"	"\x2A\x2A\x2A\x2A\x2A\x2A\x8B\x2A\x56\xC7\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x2A\x8D\x2A\x2A\x2A\x2A\x2A\xC7"
+				/* ? ? ? ? ? ? 8B ? 56 C7 ? ? ? ? ? ? ? ? ? 8D ? ? ? ? ? C7 */ // Found by SilverShot.
+				/* Search "Tongue letting go on death." the function with "Player.Heartbeat" at the bottom */
+			}
+
 			"CTerrorPlayer::SetClass"
 			{
 				"library"	"server"
@@ -2731,7 +3573,7 @@
 			/*
 			 * CBaseServer::SetReservationCookie(uint64_t, char*, va_list)
 			 */
-			"CBaseServer::SetReservationCookie" 
+			"CBaseServer::SetReservationCookie"
 			{
 				"library"	"engine"
 				"linux"		"@_ZN11CBaseServer20SetReservationCookieEyPKcz"
@@ -2809,6 +3651,21 @@
 				"library"	"server"
 				"windows"	"\x8B\x2A\x2A\x2A\x2A\x2A\x85\x2A\x74\x2A\x8B\x2A\x8B\x2A\x2A\x6A\x01\xFF\x2A\x53\x56"
 				/* 8B ? ? ? ? ? 85 ? 74 ? 8B ? 8B ? ? 6A 01 FF ? 53 56 */
+			}
+
+			"nav_update_lighting"
+			{
+				"library"	"server"
+				"linux"		"@_ZL19nav_update_lightingRK8CCommand"
+				"windows"	"\x8B\x2A\x2A\x2A\x57\x33\x2A\x83\x2A\x2A\x75\x2A\x8B"
+				/* 8B ? ? ? 57 33 ? 83 ? ? 75 ? 8B */
+				/* Search: "NavMesh Visibility List Lengths:  min = %d, avg = %d, max = %d\n" */
+			}
+
+			"TheNavAreas"
+			{
+				"library"	"server"
+				"linux"		"@TheNavAreas"
 			}
 
 			"TheNavMesh"
