@@ -62,6 +62,7 @@ void SetupForwardsNatives()
 	g_hFWD_CTerrorPlayer_TakeOverBot_Pre									= new GlobalForward("L4D_OnTakeOverBot",								ET_Event, Param_Cell);
 	g_hFWD_CTerrorPlayer_TakeOverBot_Post									= new GlobalForward("L4D_OnTakeOverBot_Post",							ET_Event, Param_Cell, Param_Cell);
 	g_hFWD_CTerrorPlayer_TakeOverBot_PostHandled							= new GlobalForward("L4D_OnTakeOverBot_PostHandled",					ET_Event, Param_Cell, Param_Cell);
+	g_hFWD_CDirector_OnFinishIntro											= new GlobalForward("L4D_OnFinishIntro",								ET_Event);
 	g_hFWD_CDirector_IsTeamFull												= new GlobalForward("L4D_OnIsTeamFull",									ET_Event, Param_Cell, Param_CellByRef);
 	g_hFWD_CTerrorGameRules_ClearTeamScores									= new GlobalForward("L4D_OnClearTeamScores",							ET_Event, Param_Cell);
 	g_hFWD_CTerrorGameRules_SetCampaignScores								= new GlobalForward("L4D_OnSetCampaignScores",							ET_Event, Param_CellByRef, Param_CellByRef);
@@ -374,6 +375,7 @@ void SetupForwardsNatives()
 	CreateNative("L4D_ForceSurvivalStart",		 					Native_ForceSurvivalStart);
 	CreateNative("L4D2_ForceScavengeStart",		 					Native_ForceScavengeStart);
 	CreateNative("L4D2_IsTankInPlay",		 						Native_CDirector_IsTankInPlay);
+	CreateNative("L4D2_DefibByDeadBody",							Native_DefibDeadBody);
 	CreateNative("L4D2_IsReachable",		 						Native_SurvivorBot_IsReachable);
 	CreateNative("L4D2_GetFirstSpawnClass",		 					Native_GetFirstSpawnClass);
 	CreateNative("L4D2_SetFirstSpawnClass",		 					Native_SetFirstSpawnClass);
@@ -433,6 +435,7 @@ void SetupForwardsNatives()
 	CreateNative("L4D_GetNavArea_AttributeFlags",					Native_GetCNavArea_AttributeFlags);
 	CreateNative("L4D_SetNavArea_AttributeFlags",					Native_SetCNavArea_AttributeFlags);
 	CreateNative("L4D_GetMaxChapters",								Native_CTerrorGameRules_GetNumChaptersForMissionAndMode);
+	CreateNative("L4D_IsInIntro",									Native_CTerrorGameRules_IsInIntro);
 	CreateNative("L4D_GetVersusMaxCompletionScore",					Native_GetVersusMaxCompletionScore);
 	CreateNative("L4D_SetVersusMaxCompletionScore",					Native_SetVersusMaxCompletionScore);
 
@@ -443,6 +446,7 @@ void SetupForwardsNatives()
 	CreateNative("L4D_GetPlayerSpawnTime",							Native_GetPlayerSpawnTime);
 	CreateNative("L4D_SetPlayerSpawnTime",							Native_SetPlayerSpawnTime);
 	CreateNative("L4D_GetTeamScore",								Native_CTerrorGameRules_GetTeamScore);
+	CreateNative("L4D_SetCampaignScores",							Native_CTerrorGameRules_SetCampaignScores);
 	CreateNative("L4D_GetMobSpawnTimerRemaining",					Native_GetMobSpawnTimerRemaining);
 	CreateNative("L4D_GetMobSpawnTimerDuration",					Native_GetMobSpawnTimerDuration);
 	CreateNative("L4D2_ChangeFinaleStage",							Native_CDirectorScriptedEventManager_ChangeFinaleStage);
