@@ -12,6 +12,8 @@ There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.
 ## Known Bugs
 secondary weapons(especially dual-pistol and magnum) may not be saved when changing level  
 when closing the safe room, a survivor which is incapped may be given health which he have when he is incapped(superman)  
+## Known Issues
+SI will not spawn in SoureMod 1.11 b6970, Metamod:Source 1.11 b1156, left4dhooks 1.155
 ## Match Modes
 ~~`thcoop`: coop with improved special infected AI~~ **(deprecated)**  
 ~~`thcoop2`: coop with improved special infected AI(mixed plugins)~~ **(deprecated)**  
