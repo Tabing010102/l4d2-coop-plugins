@@ -188,7 +188,7 @@ stock void CPrintToChatEx(int client, int author, const char[] message, any ...)
  * @param message       Message (formatting rules).
  */
 stock void CPrintToChatAllEx(int author, const char[] message, any ...) {
-	char buffer[MAX_MESSAGE_LENGTH];
+	/*char buffer[MAX_MESSAGE_LENGTH];
 	SetGlobalTransTarget(LANG_SERVER);
 	VFormat(buffer, sizeof(buffer), message, 3);
 
@@ -201,6 +201,27 @@ stock void CPrintToChatAllEx(int author, const char[] message, any ...) {
 	}
 	else {
 		MC_PrintToChatAllEx(author, "%s%s", g_sCPrefix, buffer);
+	}*/
+
+	if (author < 0 || author > MaxClients) {
+		ThrowError("Invalid client index %d", author);
+	}
+
+	if (!IsClientInGame(author)) {
+		ThrowError("Client %d is not in game", author);
+	}
+
+	char szBuffer[MAX_MESSAGE_LENGTH];
+
+	for (int i = 1; i <= MaxClients; ++i) {
+		if (IsClientInGame(i) && !IsFakeClient(i) && !C_SkipList[i]) {
+			SetGlobalTransTarget(i);
+			VFormat(szBuffer, sizeof(szBuffer), message, 3);
+
+			C_PrintToChatEx(i, author, "%s", szBuffer);
+		}
+
+		C_SkipList[i] = false;
 	}
 }
 
