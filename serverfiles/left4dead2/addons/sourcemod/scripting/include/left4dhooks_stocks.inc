@@ -1,7 +1,7 @@
 /**
  * =============================================================================
  * Left 4 Dead Stocks Library (C)2011-2012 Buster "Mr. Zero" Nielsen
- * Syntax Update and merge into "Left 4 DHooks Direct" (C) 2024 "SilverShot"
+ * Syntax Update and merge into "Left 4 DHooks Direct" (C) 2025 "SilverShot"
  * =============================================================================
  *
  * This program is free software; you can redistribute it and/or modify it
@@ -161,7 +161,7 @@ enum L4DResourceType
 	L4DResource_TankTickets2
 }
 
-stock static const char L4D1ZombieClassname[6][] =
+stock const char L4D1ZombieClassname[6][32] =
 {
 	"smoker",
 	"boomer",
@@ -171,7 +171,7 @@ stock static const char L4D1ZombieClassname[6][] =
 	"error_bad_L4D1ZombieClassType"
 };
 
-stock static const char L4D2ZombieClassname[9][] =
+stock const char L4D2ZombieClassname[9][32] =
 {
 	"smoker",
 	"boomer",
@@ -272,6 +272,32 @@ stock any L4D2_GetPlayerZombieClass(int client)
 stock void L4D2_SetPlayerZombieClass(int client, L4D2ZombieClassType class)
 {
 	SetEntProp(client, Prop_Send, "m_zombieClass", class);
+}
+
+/**
+ * Returns zombie player L4D1 zombie classname from the L4D1ZombieClassType value
+ *
+ * @param type			L4D1ZombieClassType
+ * @return				Classname string
+ * @error				Invalid type index
+ */
+// L4D1 only
+stock char[] L4D1_GetZombieClassname(L4D1ZombieClassType type)
+{
+	return L4D1ZombieClassname[type];
+}
+
+/**
+ * Returns zombie player L4D2 zombie classname from the L4D2ZombieClassType value
+ *
+ * @param type			L4D1ZombieClassType
+ * @return				Classname string
+ * @error				Invalid type index
+ */
+// L4D2 only
+stock char[] L4D2_GetZombieClassname(L4D2ZombieClassType type)
+{
+	return L4D2ZombieClassname[type];
 }
 
 /**
@@ -963,10 +989,13 @@ stock float L4D_GetAvgSurvivorIntensity()
  * @noreturn
  * @error				Invalid client index
  */
+/*
+// MOVED TO NATIVES:
 stock void L4D_SetPlayerIntensity(int client, float intensity)
 {
 	SetEntProp(client, Prop_Send, "m_clientIntensity", RoundToNearest(intensity * 100.0));
 }
+*/
 
 /**
  * Returns whether player is calm
@@ -1154,6 +1183,8 @@ stock void L4D2_SetWeaponUpgrades(int weapon, int upgrades)
  *
  * Note: Infected attacker means the infected player that is currently
  * pinning down the survivor. Such as hunter, smoker, charger and jockey
+ *
+ * You can use the native L4D2_GetSpecialInfectedDominatingMe() which is likely faster, instead of this stock
  *
  * @param client		Survivor client index
  * @return				Infected attacker index, -1 if not found
