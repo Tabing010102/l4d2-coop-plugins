@@ -8,34 +8,46 @@ Please edit `lgsm/config-lgsm/l4d2server/l4d2server.cfg` to specify your own por
 Current configuration is for 100 tick, please modify `tick_door_speed` if you need other tickrate  
 Please edit `serverfiles/left4dead2/addons/sourcemod/configs/admins_simple.ini` to add yourself as an administrator  
 There may be some bugs with the plugin set, **USE AT YOUR OWN RISK**.  
+
 # Some Descriptions
+
 ## Known Bugs
 secondary weapons(especially dual-pistol and magnum) may not be saved when changing level  
 when closing the safe room, a survivor which is incapped may be given health which he have when he is incapped(superman)  
-## Known Issues
-SI will not spawn in SoureMod 1.11 b6970, Metamod:Source 1.11 b1156, left4dhooks 1.155
+
 ## Match Modes
-~~`thcoop`: coop with improved special infected AI~~ **(deprecated)**  
-~~`thcoop2`: coop with improved special infected AI(mixed plugins)~~ **(deprecated)**  
-~~`thcoopnosiai`: coop with original special infected AI~~ **(deprecated)**  
-`thcoop4`: coop with improved special infected AI(mixed plugins) && new SI control plugins  
-`thcoop4hardplus`: coop with improved special infected AI(mixed plugins) && new SI control plugins(hard plus)  
-`thcoop4expert`: coop with improved special infected AI(mixed plugins) && new SI control plugins(expert)  
-`thcoop4nosiai`: coop with original special infected AI && new SI control plugins  
-`thcoop4nosiaiexpert`: coop with original special infected AI && new SI control plugins(expert)  
-## Default Diffcuilty Description(thcoop4)
-`snum` = number of survivors in game  
-when `snum` ≤ `4`, calculate as `4` below  
+~~`thcoop`: Campaign mode with enhanced special infected~~ **(Deprecated)**  
+~~`thcoop2`: Campaign mode with enhanced special infected (hybrid plugins)~~ **(Deprecated)**  
+~~`thcoopnosiai`: Campaign mode with vanilla special infected~~ **(Deprecated)**  
+`thcoop4`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Hard)  
+`thcoop4normal`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Normal)  
+`thcoop4hardplus`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Hard+)  
+`thcoop4expert`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Expert)  
+`thcoop4nosiai`: Campaign mode with vanilla special infected && new SI control  
+`thcoop4nosiaiexpert`: Campaign mode with vanilla special infected && new SI control (Expert)  
+
+## Default Difficulty Settings (thcoop4)
+### Differences between Expert and Hard
+Expert mode loads the `l4d_ragdoll_fader` plugin, which makes zombie corpses disappear instantly
 ### Tank Health
-this repo uses modified l4dinfectedbots(2.6.8) to control tank health, need to multiply 1.5 in normal difficulty  
-easy: `3000 + (snum - 4) * 750`  
-normal: `6000 + (snum - 4) * 1500`  
-hard & expert: `8000 + (snum - 4) * 2000`  
-### SI(Special Infected) Generation Time
-17-35 seconds  
-### Number of SI
-`thcoop4` & `thcoop4nosiai` matchmode: `6 + floor((snum - 4) / 2) * 3`, 3 player-controlled SI  
-`thcoop4hardplus` & `thcoop4expert` & `thcoop4nosiaiexpert` matchmode: `4 + (snum - 4)`, no player-controlled SI  
+This repo uses l4dinfectedbots(2025-1-7) to control tank health
+ - When player count > 4:
+   - Easy & Normal: `6000 + (player_count - 4) * 750`
+   - Hard & Expert: `8000 + (player_count - 4) * 1500`
+ - When player count <= 4, tank health is reduced proportionally:
+   - Easy & Normal: `6000 * (player_count / 4)`
+   - Hard & Expert: `8000 * (player_count / 4)`
+### Special Infected Spawn Time
+20-35 seconds, slightly longer when player count < 4
+### Special Infected Count
+By default, players cannot control special infected. Quantities refer to `sourcemod/data/l4dinfectedbots/coop.cfg`  
+Default configuration recommends player count ≤ 14
+### Special Infected Control Configuration
+Refer to `sourcemod/data/l4dinfectedbots/xxx.cfg`, where `xxx` is the game mode. This repo only modifies the `coop` mode  
+`thcoop4normal` mode loads configurations from `coop_normal.cfg`  
+For other unlisted configurations, you can add a `my_mode.cfg` file and set cvar `l4d_infectedbots_read_data "my_mode"` to load it  
+For more usage details, please refer to the [original repo](https://github.com/fbef0102/L4D1_2-Plugins/tree/9c92b6c245690997922f203d1be23e47f983b0c2/l4dinfectedbots)  
+
 ## Hard Plus Difficulty Description(thcoop4hardplus)
 **Note: this difficulty is based on the offical `Hard` difficulty, you need to change the difficulty to `Hard` to use this mode**  
 ### Default damage changes(relative to the offical `Hard`)
@@ -53,17 +65,21 @@ Fire Damage: x1.75
 ### Other description
 Damage of special infected may not be completely changed  
 You may need to manual execute `/resetmatch` to correctly restore damage when changing to other matchmodes  
+
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
 `/resetmatch`: unload running matchmodes  
 default autoloading `thcoop4` mode, please change `autoloadlgofnoc xxx` in the server config file to modify  
 cvar `ai_tank_bhop` control tank bhop or not, set `1` to enable, set `0` to disable  
+cvar `ai_boomer_bhop` control boomer bhop or not, set `1` to enable, set `0` to disable  
+
 ## Player commands
 `/jg`: join game as a survivor  
 `/away`: force idle  
 `/zs`: commit suiside  
 `/csm`: change survivor model  
 `Shift + E`: mark a spot on the map at your crosshair  
+
 ## Management commands
 ### General commands
 `/sset num`: set server max player to `num`  
@@ -99,4 +115,5 @@ Ammo reservation is now controlled by `l4d2_guncontrol`, default triple ammo res
 `/offtui`: turn off unlimited m2  
 `/onrb`: turn on auto bhop when space being pressed  
 `/offrb`: turn off auto bhop when space being pressed  
+
 # Other descriptions? to be added
