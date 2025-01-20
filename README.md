@@ -19,7 +19,7 @@ when closing the safe room, a survivor which is incapped may be given health whi
 ~~`thcoop2`: Campaign mode with enhanced special infected (hybrid plugins)~~ **(Deprecated)**  
 ~~`thcoopnosiai`: Campaign mode with vanilla special infected~~ **(Deprecated)**  
 `thcoop4`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Hard)  
-`thcoop4normal`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Normal)  
+`thcoop4normal`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Easy/Normal)  
 `thcoop4hardplus`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Hard+)  
 `thcoop4expert`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Expert)  
 `thcoop4nosiai`: Campaign mode with vanilla special infected && new SI control  
@@ -31,15 +31,15 @@ Expert mode loads the `l4d_ragdoll_fader` plugin, which makes zombie corpses dis
 ### Tank Health
 This repo uses l4dinfectedbots(2025-1-7) to control tank health
  - When player count > 4:
-   - Easy & Normal: `6000 + (player_count - 4) * 750`
-   - Hard & Expert: `8000 + (player_count - 4) * 1500`
+   - Easy / Normal: `6000 + (player_count - 4) * 750`
+   - Hard / Expert: `8000 + (player_count - 4) * 1500`
  - When player count <= 4, tank health is reduced proportionally:
-   - Easy & Normal: `6000 * (player_count / 4)`
-   - Hard & Expert: `8000 * (player_count / 4)`
+   - Easy / Normal: `6000 * (player_count / 4)`
+   - Hard / Expert: `8000 * (player_count / 4)`
 ### Special Infected Spawn Time
 25-35 seconds, slightly longer when player count < 4
 ### Special Infected Count
-By default, players cannot control special infected. Quantities refer to `sourcemod/data/l4dinfectedbots/thcoop4.cfg`  
+By default, players cannot control special infected. Quantities refer to `sourcemod/data/l4dinfectedbots/thcoop4_xxx.cfg`  
 Default configuration recommends player count ≤ 14
 ### Special Infected Control Configuration
 Refer to `sourcemod/data/l4dinfectedbots/xxx.cfg`, where `xxx` is the game mode. This repo adds the `thcoop4` mode  
