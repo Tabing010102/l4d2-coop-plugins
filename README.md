@@ -38,13 +38,13 @@ This repo uses l4dinfectedbots(2025-1-7) to control tank health
    - Easy & Normal: `6000 * (player_count / 4)`
    - Hard & Expert: `8000 * (player_count / 4)`
 ### Special Infected Spawn Time
-20-35 seconds, slightly longer when player count < 4
+25-35 seconds, slightly longer when player count < 4
 ### Special Infected Count
-By default, players cannot control special infected. Quantities refer to `sourcemod/data/l4dinfectedbots/coop.cfg`  
+By default, players cannot control special infected. Quantities refer to `sourcemod/data/l4dinfectedbots/thcoop4.cfg`  
 Default configuration recommends player count ≤ 14
 ### Special Infected Control Configuration
-Refer to `sourcemod/data/l4dinfectedbots/xxx.cfg`, where `xxx` is the game mode. This repo only modifies the `coop` mode  
-`thcoop4normal` mode loads configurations from `coop_normal.cfg`  
+Refer to `sourcemod/data/l4dinfectedbots/xxx.cfg`, where `xxx` is the game mode. This repo adds the `thcoop4` mode  
+`thcoop4normal` mode loads configurations from `thcoop4_normal.cfg`, other modes loads configurations from `thcoop4_hard.cfg`  
 For other unlisted configurations, you can add a `my_mode.cfg` file and set cvar `l4d_infectedbots_read_data "my_mode"` to load it  
 For more usage details, please refer to the [original repo](https://github.com/fbef0102/L4D1_2-Plugins/tree/9c92b6c245690997922f203d1be23e47f983b0c2/l4dinfectedbots)  
 

@@ -38,13 +38,13 @@ Windows平台可以查看`win`分支
    - 简单&普通：`6000 * (人数 / 4)`
    - 困难&专家：`8000 * (人数 / 4)`
 ### 特感刷新时间
-20-35秒，人数小于4时略有延长
+25-35秒，人数小于4时略有延长
 ### 特感数量
-默认不允许玩家控制特感，数量参考`sourcemod/data/l4dinfectedbots/coop.cfg`文件  
+默认不允许玩家控制特感，数量参考`sourcemod/data/l4dinfectedbots/thcoop4.cfg`文件  
 默认配置建议玩家人数小于等于14  
 ### 特感控制配置
-参考`sourcemod/data/l4dinfectedbots/xxx.cfg`文件，其中`xxx`为游戏模式，本repo仅调整了`coop`模式  
-`thcoop4normal`模式会加载`coop_normal.cfg`中的配置  
+参考`sourcemod/data/l4dinfectedbots/xxx.cfg`文件，其中`xxx`为游戏模式，本repo添加了`thcoop4`模式  
+`thcoop4normal`模式会加载`thcoop4_normal.cfg`中的配置，其他模式会加载`thcoop4_hard.cfg`中的配置  
 其他未给出的配置可以添加配置文件`my_mode.cfg`后，设置cvar`l4d_infectedbots_read_data "my_mode"`来加载  
 更多用法请参考[原repo](https://github.com/fbef0102/L4D1_2-Plugins/tree/9c92b6c245690997922f203d1be23e47f983b0c2/l4dinfectedbots)  
 
