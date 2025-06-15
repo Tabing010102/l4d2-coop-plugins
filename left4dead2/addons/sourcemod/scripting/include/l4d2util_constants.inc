@@ -3,18 +3,71 @@
 #endif
 #define l4d2util_constants_inc_
 
-enum L4D2_Team
+#define ENTITY_MAX_NAME_LENGTH		64
+#define MAX_MAP_NAME				64
+#define MAX_NETWORKID_LENGTH		64 // num chars for a network (i.e steam) ID
+
+// How many bits to use to encode an edict.
+#define MAX_EDICT_BITS				11 // # of bits needed to represent max edicts
+// Max # of edicts in a level
+#define MAX_EDICTS					(1 << MAX_EDICT_BITS)
+
+// m_lifeState values
+#define LIFE_ALIVE					0 // alive
+#define LIFE_DYING					1 // playing death animation or still falling off of a ledge waiting to hit ground
+#define LIFE_DEAD					2 // dead. lying still.
+#define LIFE_RESPAWNABLE			3
+#define LIFE_DISCARDBODY			4
+
+#define SPAWNFLAG_READY				0
+#define SPAWNFLAG_CANSPAWN			(0 << 0)
+#define SPAWNFLAG_DISABLED			(1 << 0)
+#define SPAWNFLAG_WAITFORSURVIVORS	(1 << 1)
+#define SPAWNFLAG_WAITFORFINALE		(1 << 2)
+#define SPAWNFLAG_WAITFORTANKTODIE	(1 << 3)
+#define SPAWNFLAG_SURVIVORESCAPED	(1 << 4)
+#define SPAWNFLAG_DIRECTORTIMEOUT	(1 << 5)
+#define SPAWNFLAG_WAITFORNEXTWAVE	(1 << 6)
+#define SPAWNFLAG_CANBESEEN			(1 << 7)
+#define SPAWNFLAG_TOOCLOSE			(1 << 8)
+#define SPAWNFLAG_RESTRICTEDAREA	(1 << 9)
+#define SPAWNFLAG_BLOCKED			(1 << 10)
+
+#define HITGROUP_GENERIC	0
+#define HITGROUP_HEAD		1
+#define HITGROUP_CHEST		2
+#define HITGROUP_STOMACH	3
+#define HITGROUP_LEFTARM	4
+#define HITGROUP_RIGHTARM	5
+#define HITGROUP_LEFTLEG	6
+#define HITGROUP_RIGHTLEG	7
+#define HITGROUP_GEAR		10 // alerts NPC, but doesn't do damage or bleed (1/100th damage)
+
+// Constants that exist in the game (except for constant MAX_NUMBER_TEAMS)
+#define TEAM_ANY				-1
+#define TEAM_INVALID			-1
+#define TEAM_UNASSIGNED			0 // not assigned to a team
+#define TEAM_SPECTATOR			1 // spectator team
+#define TEAM_SURVIVOR			2
+#define TEAM_ZOMBIE				3
+#define TEAM_L4D1_SURVIVOR		4 // Used for maps where there are survivors from the first chapter and from the second, for example c7m3_port
+
+#define MAX_NUMBER_TEAMS		5
+
+// Constants are used in the game code, there is definitely no such enum
+enum /*L4D2_Team*/
 {
 	L4D2Team_None = 0,
 	L4D2Team_Spectator,
 	L4D2Team_Survivor,
 	L4D2Team_Infected,
-	
-	L4D2Team_Size //4 size
+	L4D2Team_L4D1_Survivor, // Used for maps where there are survivors from the first chapter and from the second, for example c7m3_port
+
+	L4D2Team_Size // 5 size
 };
 
 //The official order of characters in the game
-enum L4D2_Infected
+enum /*L4D2_Infected*/
 {
 	L4D2Infected_Common = 0,
 	L4D2Infected_Smoker = 1,
@@ -26,13 +79,13 @@ enum L4D2_Infected
 	L4D2Infected_Witch,
 	L4D2Infected_Tank,
 	L4D2Infected_Survivor,
-	
+
 	L4D2Infected_Size //10 size
 };
 
-stock const char L4D2_InfectedNames[view_as<int>(L4D2Infected_Size)][] =
+stock const char L4D2_InfectedNames[L4D2Infected_Size][] =
 {
-	"Common",
+	"Normal",
 	"Smoker",
 	"Boomer",
 	"Hunter",
@@ -44,54 +97,59 @@ stock const char L4D2_InfectedNames[view_as<int>(L4D2Infected_Size)][] =
 	"Survivor"
 };
 
-stock const char L4D2_TeamName[view_as<int>(L4D2Team_Size)][] =
+stock const char L4D2_TeamName[L4D2Team_Size][] =
 {
-	"None",
+	"Unassigned",
 	"Spectator",
 	"Survivors",
-	"Infected"
+	"Infected",
+	"L4D1_Survivor"
 };
 
-enum L4D2_Gender
+enum /*L4D2_Gender*/
 {
-	L4D2Gender_Neutral,
-	L4D2Gender_Male,
-	L4D2Gender_Female,
-	L4D2Gender_Bill,
-	L4D2Gender_Zoey,
-	L4D2Gender_Francis,
-	L4D2Gender_Louis,
-	L4D2Gender_Nick,
-	L4D2Gender_Rochelle,
-	L4D2Gender_Coach,
-	L4D2Gender_Ellis,
-	L4D2Gender_CEDA,
-	L4D2Gender_Mudman,
-	L4D2Gender_Workman,
-	L4D2Gender_Fallen,
-	L4D2Gender_RiotCop,
-	L4D2Gender_Clown,
-	L4D2Gender_JimmyGibbs,
-	L4D2Gender_HospitalPatient,
-	
-	L4D2Gender_MaxSize //19 size
+	L4D2Gender_Neutral			= 0,
+	L4D2Gender_Male				= 1,
+	L4D2Gender_Female			= 2,
+	L4D2Gender_Nanvet			= 3, //Bill
+	L4D2Gender_TeenGirl			= 4, //Zoey
+	L4D2Gender_Biker			= 5, //Francis
+	L4D2Gender_Manager			= 6, //Louis
+	L4D2Gender_Gambler			= 7, //Nick
+	L4D2Gender_Producer			= 8, //Rochelle
+	L4D2Gender_Coach			= 9, //Coach
+	L4D2Gender_Mechanic			= 10, //Ellis
+	L4D2Gender_Ceda				= 11,
+	L4D2Gender_Crawler			= 12, //Mudman
+	L4D2Gender_Undistractable	= 13, //Workman (class not reacting to the pipe bomb)
+	L4D2Gender_Fallen			= 14,
+	L4D2Gender_Riot_Control		= 15, //RiotCop
+	L4D2Gender_Clown			= 16,
+	L4D2Gender_Jimmy			= 17, //JimmyGibbs
+	L4D2Gender_Hospital_Patient	= 18,
+	L4D2Gender_Witch_Bride		= 19,
+	L4D2Gender_Police			= 20, //l4d1 RiotCop (was removed from the game)
+	L4D2Gender_Male_L4D1		= 21,
+	L4D2Gender_Female_L4D1		= 22,
+
+	L4D2Gender_MaxSize //23 size
 };
 
-enum L4D2WeaponSlot
+enum /*L4D2WeaponSlot*/
 {
 	L4D2WeaponSlot_Primary,
 	L4D2WeaponSlot_Secondary,
 	L4D2WeaponSlot_Throwable,
 	L4D2WeaponSlot_HeavyHealthItem,
 	L4D2WeaponSlot_LightHealthItem,
-	
+
 	L4D2WeaponSlot_Size //5 size
 };
 
 // Weapon ID enumerations.
 // These values are *NOT* arbitrary! 
 // They are used in game as the weaponid for weapon_spawn entities
-enum WeaponId
+enum /*WeaponId*/
 {
 	WEPID_NONE,             // 0
 	WEPID_PISTOL,           // 1
@@ -154,7 +212,7 @@ enum WeaponId
 };
 
 // These values are arbitrary
-enum MeleeWeaponId
+enum /*MeleeWeaponId*/
 {
 	WEPID_MELEE_NONE,
 	WEPID_KNIFE,
@@ -178,7 +236,7 @@ enum MeleeWeaponId
 };
 
 // Weapon names for each of the weapons, used in identification.
-stock const char WeaponNames[view_as<int>(WEPID_SIZE)][] =
+stock const char WeaponNames[WEPID_SIZE][] =
 {
 	"weapon_none", "weapon_pistol", "weapon_smg",                                            // 0
 	"weapon_pumpshotgun", "weapon_autoshotgun", "weapon_rifle",                              // 3
@@ -202,7 +260,7 @@ stock const char WeaponNames[view_as<int>(WEPID_SIZE)][] =
 };
 
 // Long weapon names
-stock const char LongWeaponNames[view_as<int>(WEPID_SIZE)][] = 
+stock const char LongWeaponNames[WEPID_SIZE][] = 
 {
 	"None", "Pistol", "Uzi", // 0
 	"Pump", "Autoshotgun", "M-16", // 3
@@ -226,7 +284,7 @@ stock const char LongWeaponNames[view_as<int>(WEPID_SIZE)][] =
 };
 
 // Internal names for melee weapons
-stock const char MeleeWeaponNames[view_as<int>(WEPID_MELEES_SIZE)][] =
+stock const char MeleeWeaponNames[WEPID_MELEES_SIZE][] =
 {
 	"",
 	"knife",
@@ -247,7 +305,7 @@ stock const char MeleeWeaponNames[view_as<int>(WEPID_MELEES_SIZE)][] =
 	"pitchfork"
 };
 
-stock const char LongMeleeWeaponNames[view_as<int>(WEPID_MELEES_SIZE)][] =
+stock const char LongMeleeWeaponNames[WEPID_MELEES_SIZE][] =
 {
 	"None",
 	"Knife",
@@ -270,7 +328,7 @@ stock const char LongMeleeWeaponNames[view_as<int>(WEPID_MELEES_SIZE)][] =
 
 // World weapon models for each of the weapons. Useful for making new weapon spawns.
 // Some models are left blank because no single model can be given, the model is known or none exist.
-stock const char WeaponModels[view_as<int>(WEPID_SIZE)][] =
+stock const char WeaponModels[WEPID_SIZE][] =
 {
 	"",
 	"/w_models/weapons/w_pistol_B.mdl",
@@ -343,7 +401,7 @@ stock const char WeaponModels[view_as<int>(WEPID_SIZE)][] =
 	""
 };
 
-stock const char MeleeWeaponModels[view_as<int>(WEPID_MELEES_SIZE)][] =
+stock const char MeleeWeaponModels[WEPID_MELEES_SIZE][] =
 {
 	"",
 	"/w_models/weapons/w_knife_t.mdl",
@@ -364,7 +422,7 @@ stock const char MeleeWeaponModels[view_as<int>(WEPID_MELEES_SIZE)][] =
 	"/weapons/melee/w_pitchfork.mdl"
 };
 
-stock const int WeaponSlots[view_as<int>(WEPID_SIZE)] =
+stock const int WeaponSlots[WEPID_SIZE] =
 {
 	-1, // WEPID_NONE
 	1,  // WEPID_PISTOL
@@ -425,27 +483,37 @@ stock const int WeaponSlots[view_as<int>(WEPID_SIZE)] =
 };
 
 /* @A1m`:
- * The correct order of characters in the game,
- * this may work correctly with a netprop 'm_survivorCharacter'.
- * We need to find out the type of map l4d1 or l4d2...
+ * Original order of survivors in the game code.
+ *
+ * ~~~To use this to get survivor names we need left4dhooks or left4downtown,
+ * we need to know the 'survival_set' value from the mission info,
+ * this can be found by calling 'CTerrorGameRules::FastGetSurvivorSet'
+ * (this function stores the value from 'CTerrorGameRules: :GetSurvivorSet'', it used for optimization) 
+ * or 'CTerrorGameRules: :GetSurvivorSet'.
+ *
+ * If the player is not a survivor, then m_survivorCharacter netprop is set to 8.
+ *
+ * This damn code l4d2 :D, the order of the survivors on the l4d1 maps is changing,
+ * after Louis should be Francis.~~~
+ *
+ * Or is it easier to get the survivor character index using netprop 'm_Gender'.
 */
-enum SurvivorCharacter
+enum /*SurvivorCharacterType*/
 {
-	SurvivorCharacter_Invalid = -1,
-
 	SurvivorCharacter_Nick = 0,
 	SurvivorCharacter_Rochelle,
 	SurvivorCharacter_Coach,
 	SurvivorCharacter_Ellis,
 	SurvivorCharacter_Bill,
 	SurvivorCharacter_Zoey,
-	SurvivorCharacter_Louis,
 	SurvivorCharacter_Francis,
+	SurvivorCharacter_Louis,
+	SurvivorCharacter_Invalid, // 8
 
-	SurvivorCharacter_Size //8 size
+	SurvivorCharacter_Size // 9 size
 };
 
-stock const char SurvivorNames[view_as<int>(SurvivorCharacter_Size)][] =
+stock const char g_sSurvivorDisplayName[SurvivorCharacter_Size][] =
 {
 	"Nick",
 	"Rochelle",
@@ -453,26 +521,40 @@ stock const char SurvivorNames[view_as<int>(SurvivorCharacter_Size)][] =
 	"Ellis",
 	"Bill",
 	"Zoey",
+	"Francis",
 	"Louis",
-	"Francis"
+	"Invalid"
+};
+
+stock const char g_sSurvivorName[SurvivorCharacter_Size][] =
+{
+	"Gambler",
+	"Producer",
+	"Coach",
+	"Mechanic",
+	"NamVet",
+	"TeenGirl",
+	"Biker",
+	"Manager",
+	"Invalid"
 };
 
 // Models for each of the characters
-stock const char SurvivorModels[view_as<int>(SurvivorCharacter_Size)][] =
+stock const char g_sSurvivorModels[SurvivorCharacter_Size - 1][] =
 {
-	"models/survivors/survivor_gambler.mdl",	//MODEL_NICK
-	"models/survivors/survivor_producer.mdl",	//MODEL_ROCHELLE
-	"models/survivors/survivor_coach.mdl",		//MODEL_COACH
-	"models/survivors/survivor_mechanic.mdl",	//MODEL_ELLIS
-	"models/survivors/survivor_namvet.mdl",		//MODEL_BILL
-	"models/survivors/survivor_teenangst.mdl",	//MODEL_ZOEY
-	"models/survivors/survivor_manager.mdl",	//MODEL_LOUIS
-	"models/survivors/survivor_biker.mdl"		//MODEL_FRANCIS
+	"models/survivors/survivor_gambler.mdl",	// MODEL_NICK
+	"models/survivors/survivor_producer.mdl",	// MODEL_ROCHELLE
+	"models/survivors/survivor_coach.mdl",		// MODEL_COACH
+	"models/survivors/survivor_mechanic.mdl",	// MODEL_ELLIS
+	"models/survivors/survivor_namvet.mdl",		// MODEL_BILL
+	"models/survivors/survivor_teenangst.mdl",	// MODEL_ZOEY
+	"models/survivors/survivor_biker.mdl",		// MODEL_FRANCIS
+	"models/survivors/survivor_manager.mdl",	// MODEL_LOUIS
 };
 
 // Animation IDs used by CTerrorPlayer::DoAnimationEvent
 // Gaps do not mean the animation doesn't exist, just that I don't know what it maps to.
-enum Animation
+enum /*Animation*/
 {
 	ANIM_RELOAD_PISTOL_UZI_SNIPER = 4,
 	ANIM_RELOAD_SHOTGUN = 5,
@@ -522,5 +604,5 @@ enum Animation
 	ANIM_TANK_PUNCH_GETUP = 96,
 	ANIM_IDLE = 98,
 	
-	//ANIMATION_SIZE //99 size
+	ANIMATION_SIZE //99 size
 };

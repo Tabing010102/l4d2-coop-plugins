@@ -24,6 +24,7 @@
 `thcoop4expert`: 有特感增强（混合插件）&&新特感控制的战役模式（专家）  
 `thcoop4nosiai`: 原版特感&&新特感控制的战役模式  
 `thcoop4nosiaiexpert`: 原版特感&&新特感控制的战役模式（专家）  
+`thcoop4alone`: 有特感增强（混合插件）&&新特感控制的战役模式（单人）  
 
 ## 默认难度说明(thcoop4)
 ### 专家和困难难度区别
@@ -64,6 +65,12 @@ Witch：不变
 ### 其他说明
 特殊感染者伤害可能没有完全更改  
 切换为其他模式时，可能需要手动执行 `/resetmatch` 才能使伤害恢复正常  
+
+## 单人难度说明(thcoop4alone)
+加载了`l4d_common_ragdolls_be_gone`插件，会使僵尸尸体直接消失  
+坦克血量：1250hp  
+特感：数量限制3个，复活时间17秒  
+被控掉10点血（普通难度下）  
 
 ## Lgofnoc相关指令
 `/forcematch matchmode`: 设置服务器match模式为`matchmode`  
