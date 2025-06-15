@@ -25,6 +25,7 @@ when closing the safe room, a survivor which is incapped may be given health whi
 `thcoop4expert`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Expert)  
 `thcoop4nosiai`: Campaign mode with vanilla special infected && new SI control  
 `thcoop4nosiaiexpert`: Campaign mode with vanilla special infected && new SI control (Expert)  
+`thcoop4alone`: Campaign mode with enhanced special infected (hybrid plugins) && new SI control (Alone)  
 
 ## Default Difficulty Settings (thcoop4)
 ### Differences between Expert and Hard
@@ -65,6 +66,12 @@ Fire Damage: x1.75
 ### Other description
 Damage of special infected may not be completely changed  
 You may need to manual execute `/resetmatch` to correctly restore damage when changing to other matchmodes  
+
+## Alone Difficulty Description(thcoop4alone)
+Loaded the `l4d_common_ragdolls_be_gone` plugin, which makes zombie corpses disappear instantly  
+Tank health: 1250hp  
+Special infected: Limit number to 3, respawns in 17s  
+Take 10 damage from SI grabs (on Normal difficulty)  
 
 ## Lgofnoc related commands
 `/forcematch matchmode`: set server matchmode to `matchmode`  
