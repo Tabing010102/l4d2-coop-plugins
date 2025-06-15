@@ -28,7 +28,7 @@ when closing the safe room, a survivor which is incapped may be given health whi
 
 ## Default Difficulty Settings (thcoop4)
 ### Differences between Expert and Hard
-Expert mode loads the `l4d_ragdoll_fader` plugin, which makes zombie corpses disappear instantly
+Expert mode loads the `l4d_common_ragdolls_be_gone` plugin, which makes zombie corpses disappear instantly
 ### Tank Health
 This repo uses l4dinfectedbots(2025-1-7) to control tank health
  - When player count > 4:

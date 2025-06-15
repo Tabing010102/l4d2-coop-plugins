@@ -28,7 +28,7 @@ Windows平台可以查看`win`分支
 
 ## 默认难度说明(thcoop4)
 ### 专家和困难难度区别
-专家加载了`l4d_ragdoll_fader`插件，会使僵尸尸体直接消失
+专家加载了`l4d_common_ragdolls_be_gone`插件，会使僵尸尸体直接消失
 ### 坦克血量
 本repo使用l4dinfectedbots(2025-1-7)控制坦克血量
  - 在人数大于4时：
