@@ -68,8 +68,9 @@ You may need to manual execute `/resetmatch` to correctly restore damage when ch
 
 ## Alone Difficulty Description(thcoop4alone)
 Loaded the `l4d_common_ragdolls_be_gone` plugin, which makes zombie corpses disappear instantly  
-Tank health: 1250hp  
-Special infected: Limit number to 3, respawns in 17s  
+Tank health: 2000  
+Common infected count: 7/12  
+Special infected: Limit number to 3, respawns in 17-25s  
 Take 10 damage from SI grabs (on Normal difficulty)  
 
 ## Lgofnoc related commands
