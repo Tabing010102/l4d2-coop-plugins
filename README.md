@@ -88,6 +88,8 @@ cvar `ai_boomer_bhop` control boomer bhop or not, set `1` to enable, set `0` to 
 `/zs`: commit suiside  
 `/csm`: change survivor model  
 `Shift + E`: mark a spot on the map at your crosshair  
+`Double tap F`: toggle night vision  
+`Shift + Double tap F`: toggle brighter night vision (night vision + light source)  
 
 ## Management commands
 ### General commands
